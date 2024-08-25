@@ -8,14 +8,52 @@ export default {
     extend: {
       fontFamily: {
         Platino: ['Bitter', 'sans-serif'],
+        Cinzel: ['Cinzel', 'sans-serif'],
       },
       backgroundImage: {
         'BG': "url('/src/assets/BG.jpg')",
+        'BG2': "url('/src/assets/BG2.jpg')"
       },
+      backgroundSize: {
+        'custom-cover': 'cover', 
+      },
+      backgroundPosition: {
+        'custom-center': 'center',
+      },
+      backgroundAttachment: {
+        'fixed': 'fixed', 
+      },
+    },
+    textShadow: {
+      emeraldGlow: '0 0 20px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.6)',
+    },
+    keyframes: {
+      shine: {
+        '0%': { backgroundPosition: '-500%' },
+        '100%': { backgroundPosition: '500%' },
+      },
+      slideInLeft: {
+        '0%': { transform: 'translateX(-100%)', opacity: '0' },
+        '100%': { transform: 'translateX(0)', opacity: '1' },
+      },
+      slideInRight: {
+        '0%': { transform: 'translateX(100%)', opacity: '0' },
+        '100%': { transform: 'translateX(0)', opacity: '1' },
+      },
+      slideUp: {
+        '0%': { transform: 'translateY(100%)', opacity: '0' },
+        '100%': { transform: 'translateY(0)', opacity: '1' },
+      },
+    },
+    animation: {
+      shine: 'shine 2s linear infinite',
+      'slide-in-left': 'slideInLeft 1s ease-out forwards',
+      'slide-in-right': 'slideInRight 1s ease-out forwards',
+      'slide-up': 'slideUp 1s ease-out forwards',
     },
   },
   plugins: [
     require('daisyui'),
+    require('tailwindcss-textshadow'),
   ],
 }
-

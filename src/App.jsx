@@ -4,11 +4,13 @@ import Rule from './Pages/Rule'
 import Donate from './Pages/Donate'
 import Download from './Pages/Download'
 import Guides from './Pages/Guides'
-import Page from './Pages/Page'
+import Combination from './Pages/Combination'
+import FarmSite from './Pages/FarmSite'
+import DropList from './Pages/DropList'
+import ArmorTypes from './Pages/ArmorTypes'
 import Footer from './Components/Footer'
 
-
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   
@@ -18,12 +20,15 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<><Home/> <OngoingEvents/> <Footer/> </>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/Rule" element={<Rule/>}/>
           <Route path="/Donate" element={<Donate/>}/>
-          <Route path="/Download" element={<Download/>}/>
           <Route path="/Guides" element={<Guides/>}/>
-          <Route path="/Page" element={<Page/>}/>
+          <Route path="/Combination" element={<Combination/>}/>
+          <Route path="/DropList" element={<DropList/>}/>
+          <Route path="/FarmSite" element={<FarmSite/>}/>
+          <Route path="/ArmorTypes" element={<ArmorTypes/>}/>
+          <Route path="/Download" element={<Download/>}/>
         </Routes>
       </BrowserRouter>
     </>

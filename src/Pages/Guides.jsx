@@ -4,9 +4,9 @@ import NavBar from '../Components/NavBar'
 function Guides() {
   return (
     <div>
-        <div className="h-screen w-full bg-BG bg-no-repeat bg-cover bg-center">
-            <div className="max-w-screen-2xl mx-auto">
-                <NavBar/>
+         <div className={`h-screen w-full bg-BG bg-no-repeat bg-cover bg-center`}>
+        <NavBar/>
+        <div className="max-w-screen-2xl mx-auto my-[130px] flex flex-col">
             </div>
 
             <div className="max-w-screen-2xl mx-auto flex flex-col items-center">
@@ -19,7 +19,9 @@ function Guides() {
 
         </div>
 
-        
+        <div>
+          <Footer/>
+          </div>
     </div>
   )
 }
