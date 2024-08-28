@@ -34,7 +34,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
 
   return (
     <>
-      <div className="navbar bg-black fixed top-0 w-full z-50">
+      <div className="navbar bg-black fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <Link to="/">
             <img src={pLogo} className='object-cover w-[150px] h-[100px] ml-[100px]' alt="Logo" />
@@ -97,28 +97,13 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
               </a>
             </li>
 
-            <Link to="/">
+            <Link to="/Guides">
               <li className="relative group">
-                <a className={getLinkClasses("game-guides")}>
-                  <IoMdArrowDropdown className="mr-0 text-2xl" />
+                <a className={getLinkClasses("guide")}>
                   GAME GUIDES
-                  <span className={getUnderlineClasses("game-guides")} />
+                  <FiArrowUpRight className="mr-0 text-2xl" />
+                  <span className={getUnderlineClasses("download")} />
                 </a>
-                {/* Dropdown Menu */}
-                <ul className="absolute left-0 mt-10 hidden w-[218px] bg-black/80 group-hover:block rounded-lg shadow-lg">
-                  <li>
-                    <Link to="/Combination" className="block px-6 py-2 text-base-200 hover:text-emerald-500">Combination</Link>
-                  </li>
-                  <li>
-                    <Link to="/DropList" className="block px-6 py-2 text-base-200 hover:text-emerald-500">Drop List</Link>
-                  </li>
-                  <li>
-                    <Link to="/farmSite" className="block px-6 py-2 text-base-200 hover:text-emerald-500">Farm Site</Link>
-                  </li>
-                  <li>
-                    <Link to="/Rule" className="block px-6 py-2 text-base-200 hover:text-emerald-500">Server Rules</Link>
-                  </li>
-                </ul>
               </li>
             </Link>
 
@@ -140,13 +125,63 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
           <div tabIndex={0} role="button" className="btn btn-ghost m-1">
             <a className="text-4xl text-base-100"><GiHamburgerMenu /></a>
           </div>
-          <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Platino">
-            <li><a href="/" onClick={handleHomeClick}>HOME</a></li>
-            <li><a href="/GameGuides">GAME GUIDES</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToDonation(); }}>DONATION</a></li>
-            <li><a href="/Download">DOWNLOAD</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToEvents(); }}>EVENTS</a></li>
-            <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToLeaderboard(); }}>LEADERBOARDS</a></li>
+          <ul tabIndex={0} className="dropdown-content menu bg-black rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Platino">
+
+          <li className="relative group">
+              <a onClick={handleHomeClick} className={getLinkClasses("home")}>
+                <FaHome className="mr-0 text-2xl" />
+                HOME
+                <span className={getUnderlineClasses("home")} />
+              </a>
+            </li>
+            
+            <li className="relative group">
+              <a onClick={(e) => {e.preventDefault();scrollToLeaderboard();}} className={getLinkClasses("leaderboard")}>
+                <FaRankingStar className="mr-0 text-2xl" />
+                LEADERBOARDS
+                <span className={getUnderlineClasses("leaderboard")} />
+              </a>
+            </li>
+            
+            <li className="relative group">
+              <a onClick={(e) => {e.preventDefault();scrollToDonation();}} className={getLinkClasses("donation")}>
+                <FaDonate className="mr-0 text-2xl" />
+                DONATION
+                <span className={getUnderlineClasses("donation")} />
+              </a>
+            </li>
+
+            <li className="relative group">
+              <a onClick={(e) => {e.preventDefault();scrollToEvents();}} className={getLinkClasses("events")}>
+                <MdEmojiEvents className="mr-0 text-2xl" />
+                EVENTS
+                <span className={getUnderlineClasses("events")} />
+              </a>
+            </li>
+
+
+            <Link to="/Guides">
+              <li className="relative group">
+                <a className={getLinkClasses("guide")}>
+                  GAME GUIDES
+                  <FiArrowUpRight className="mr-0 text-2xl" />
+                  <span className={getUnderlineClasses("guide")} />
+                </a>
+              </li>
+            </Link>
+
+
+
+            <Link to="/Download">
+              <li className="relative group">
+                <a className={getLinkClasses("download")}>
+                  DOWNLOAD
+                  <FiArrowUpRight className="mr-0 text-2xl" />
+                  <span className={getUnderlineClasses("download")} />
+                </a>
+              </li>
+            </Link>
+          
           </ul>
         </div>
       </div>

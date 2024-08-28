@@ -9,7 +9,7 @@ import FarmSite from './Pages/FarmSite'
 import DropList from './Pages/DropList'
 import ArmorTypes from './Pages/ArmorTypes'
 import Footer from './Components/Footer'
-
+import ScrollToTop from './Components/ScrollToTop'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -19,6 +19,8 @@ function App() {
 
     <>
       <BrowserRouter>
+      <ScrollToTop/>
+      
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/Rule" element={<Rule/>}/>

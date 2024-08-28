@@ -6,16 +6,20 @@ export default {
   ],
   theme: {
     extend: {
+      
       fontFamily: {
         Platino: ['Bitter', 'sans-serif'],
         Cinzel: ['Cinzel', 'sans-serif'],
       },
       backgroundImage: {
         'BG': "url('/src/assets/BG.jpg')",
-        'BG2': "url('/src/assets/BG2.jpg')"
+        'BG2': "url('/src/assets/BG2.jpg')",
+        'BG3': "url('/src/assets/BG3.jpg')",
       },
       backgroundSize: {
-        'custom-cover': 'cover', 
+        'cover': 'cover', // Added cover
+        'contain': 'contain', // Added contain
+        'full': '100% 100%', 
       },
       backgroundPosition: {
         'custom-center': 'center',
@@ -45,12 +49,13 @@ export default {
         '100%': { transform: 'translateY(0)', opacity: '1' },
       },
     },
-    animation: {
+    animation: { 
       shine: 'shine 2s linear infinite',
-      'slide-in-left': 'slideInLeft 1s ease-out forwards',
-      'slide-in-right': 'slideInRight 1s ease-out forwards',
-      'slide-up': 'slideUp 1s ease-out forwards',
+      'slide-in-left': 'slideInLeft 2s ease-out forwards',
+      'slide-in-right': 'slideInRight 2s ease-out forwards',
+      'slide-up': 'slideUp 2s ease-out forwards',
     },
+    
   },
   plugins: [
     require('daisyui'),
