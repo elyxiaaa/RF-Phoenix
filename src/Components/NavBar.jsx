@@ -34,7 +34,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
 
   return (
     <>
-      <div className="navbar bg-black fixed top-0 w-screen z-50">
+      <div className="navbar bg-black/90 fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <Link to="/">
             <img src={pLogo} className='object-cover w-[150px] h-[100px] ml-[100px]' alt="Logo" />
@@ -42,7 +42,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Cinzel hidden lg:flex space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
             <li className="relative group">
               <a
                 onClick={handleHomeClick}

@@ -9,6 +9,7 @@ import FarmSite from './Pages/FarmSite'
 import DropList from './Pages/DropList'
 import ArmorTypes from './Pages/ArmorTypes'
 import Footer from './Components/Footer'
+import Interface from './Pages/Interface'
 import ScrollToTop from './Components/ScrollToTop'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/FarmSite" element={<FarmSite/>}/>
           <Route path="/ArmorTypes" element={<ArmorTypes/>}/>
           <Route path="/Download" element={<Download/>}/>
+          <Route path="/Interface" element={<Interface/>}/>
         </Routes>
       </BrowserRouter>
     </>

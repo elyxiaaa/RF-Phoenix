@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 import CardEvents from '../Components/CardEvents';
@@ -13,6 +14,8 @@ import totalPlayers from '../assets/RF-ASSETS/TotalPlayers.png';
 import chipWarStatus from '../assets/RF-ASSETS/ChipWarStatus.png';
 import newPlayer from '../assets/RF-ASSETS/newplayer.png';
 import Item from '../assets/RF-ASSETS/item.png'
+import UIsection from '../assets/RF-ASSETS/UIsection.png'
+import UiButton from '../assets/RF-ASSETS/button.png'
 
 function Home() {
   const [total, setTotal] = useState();
@@ -21,10 +24,13 @@ function Home() {
   const leaderboardSectionRef = useRef(null);
   const newbieRewardsSectionRef = useRef(null);
   const donationSectionRef = useRef(null);
+  const interfaceSectionRef = useRef(null);
   const [activeTab, setActiveTab] = useState("home");
   const [isVisible, setIsVisible] = useState(false);
+  const [isHomeAnimationReset, setIsHomeAnimationReset] = useState(false);
   const [isLeaderboardAnimationReset, setIsLeaderboardAnimationReset] = useState(false);
   const [isNewbieRewardsAnimationReset, setIsNewbieRewardsAnimationReset] = useState(false);
+  const [isInterfaceAnimationReset, setIsInterfaceAnimationReset] = useState(false);
   const [isDonationAnimationReset, setIsDonationAnimationReset] = useState(false);
   const [isEventAnimationReset, setIsEventAnimationReset] = useState(false);
   
@@ -53,6 +59,7 @@ function Home() {
       const leaderboardSectionTop = leaderboardSectionRef.current.getBoundingClientRect().top;
       const donationSectionTop = donationSectionRef.current.getBoundingClientRect().top;
       const newbieRewardsSectionTop = newbieRewardsSectionRef.current.getBoundingClientRect().top;
+      const interfaceSectionTop = interfaceSectionRef.current.getBoundingClientRect().top;
       
   
       // Determine which section is in view
@@ -66,6 +73,8 @@ function Home() {
         setActiveTab("leaderboard");
       } else if (newbieRewardsSectionTop <= height && newbieRewardsSectionTop >= 0) {
         setActiveTab("newbieRewards");
+      } else if (interfaceSectionTop <= height && interfaceSectionTop >= 0) {
+        setActiveTab("interface");
       } else {
         setActiveTab(""); // No section is currently in view
       }
@@ -83,6 +92,9 @@ function Home() {
       ([entry]) => {
         if (entry.isIntersecting) {
           switch (entry.target) {
+            case homeSectionRef.current:
+              setIsHomeAnimationReset(true);
+              break;
             case leaderboardSectionRef.current:
               setIsLeaderboardAnimationReset(true);
               break;
@@ -92,11 +104,17 @@ function Home() {
             case donationSectionRef.current:
               setIsDonationAnimationReset(true);
               break;
+              case interfaceSectionRef.current:
+              setIsInterfaceAnimationReset(true);
+              break;
             default:
               break;
           }
         } else {
           switch (entry.target) {
+            case homeSectionRef.current:
+              setIsHomeAnimationReset(false);
+              break;
             case leaderboardSectionRef.current:
               setIsLeaderboardAnimationReset(false);
               break;
@@ -106,6 +124,9 @@ function Home() {
             case donationSectionRef.current:
               setIsDonationAnimationReset(false);
               break;
+            case interfaceSectionRef.current:
+              setIsInterfaceAnimationResetReset(false);
+              break;
             default:
               break;
           }
@@ -114,7 +135,7 @@ function Home() {
       { threshold: 0.1 }
     );
   
-
+    
     if (homeSectionRef.current) {
       observer.observe(homeSectionRef.current);
     }
@@ -130,7 +151,9 @@ function Home() {
     if (newbieRewardsSectionRef.current) {
       observer.observe(newbieRewardsSectionRef.current);
     }
-  
+    if (interfaceSectionRef.current) {
+      observer.observe(interfaceSectionRef.current);
+    }
     return () => {
       if (homeSectionRef.current) {
         observer.unobserve(homeSectionRef.current);
@@ -146,6 +169,9 @@ function Home() {
       }
       if (newbieRewardsSectionRef.current) {
         observer.unobserve(newbieRewardsSectionRef.current);
+      }
+      if (interfaceSectionRef.current) {
+        observer.unobserve(interfaceSectionRef.current);
       }
     };
   }, []);
@@ -168,6 +194,12 @@ const scrollToNewbieRewards = () => {
   }
 };
 
+const scrollToInterface = () => {
+  if (interfaceSectionRef.current) {
+    interfaceSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  }
+};
+
 const scrollToDonation = () => {
   if (donationSectionRef.current) {
     donationSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
@@ -179,22 +211,22 @@ const scrollToDonation = () => {
         <NavBar activeTab={activeTab} scrollToEvents={scrollToEvents} scrollToLeaderboard={scrollToLeaderboard} scrollToNewbieRewards={scrollToNewbieRewards} scrollToDonation={scrollToDonation} />
         <div className="max-w-screen-2xl mx-auto my-[130px] flex flex-col">
           <div >
-            <img src={txtImage} className="object-fill h-[350px] w-[650px]" alt="Text" />
+            <img src={txtImage} className={`object-fill h-[350px] w-[650px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Text"  />
           </div>
 
           <div className="flex ml-[274px]">
             <a href="">
-              <img src={dcImage} className="h-[50px] w-[50px]" alt="Discord" />
+              <img src={dcImage} className={`h-[50px] w-[50px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Discord" />
             </a>
 
             <a href="https://www.facebook.com/RFPhoenix55">
-              <img src={fbImage} className="h-[50px] w-[50px]" alt="Facebook" />
+              <img src={fbImage} className={`h-[50px] w-[50px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Facebook" />
             </a>
           </div>
 
-          <div className="relative flex justify-center items-center mt-[100px]">
-            <p className="absolute top-0 mt-[-20px] text-4xl font-Cinzel font-bold text-white text-shadow-emeraldGlow animate-shine">
-              Join Us Now!
+          <div className={`relative flex justify-center items-center mt-[100px] ${isHomeAnimationReset ? 'animate-slide-up' : ''}`}>
+            <p className="absolute top-0 mt-[-20px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow animate-shine">
+              JOIN THE BATTLEFIELD
             </p>
 
             <a href="https://phoenix.gamecp.net/index.php" className="block">
@@ -212,7 +244,7 @@ const scrollToDonation = () => {
 
       <div className="h-screen w-screen bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
+    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
@@ -230,18 +262,30 @@ const scrollToDonation = () => {
 </div>
 
 
-<div className="h-screen w-full flex bg-BG3 bg-no-repeat bg-full bg-center" ref={newbieRewardsSectionRef}>
+<div className="h-screen w-screen flex bg-BG3 bg-no-repeat bg-full bg-center" ref={newbieRewardsSectionRef}>
   <div className="relative flex justify-center items-center">
     <div className="left-0 mb-[35px] w-full flex justify-center items-center">
-      <img src={newPlayer} className={`h-[1409px] mt-[20px] mx-auto overflow-visible flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
+      <img src={newPlayer} className={`h-[1409px] w-screen mt-[20px] mx-auto overflow-visible flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
       <img src={Item} className={`h-[382px] w-[905px] absolute right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-slide-in-right' : ''}`}/>
    </div>
   </div>
 </div>
 
-<div className="h-screen w-full bg-emerald-300 bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
-  <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
+{/**Interface Section */}
+<div className="h-fit w-screen flex py-20 bg-black bg-no-repeat bg-center" ref={interfaceSectionRef}>  
+  <div className="relative flex justify-center items-center">
+    <img src={UIsection} className={`h-auto w-screen ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
+    <Link to="/Interface">
+    <img src={UiButton} className={`absolute right-[190px] mt-[200px] ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
+    </Link>
+  </div>
+  
+
+</div>
+
+<div className="h-screen w-screen bg-emerald-300 bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
+  <div className="left-0 flex justify-center items-center">
+    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
       DONATION
     </p>
   </div>
@@ -249,7 +293,7 @@ const scrollToDonation = () => {
 
 <div ref={eventsSectionRef} className="h-screen w-full bg-emerald-800 bg-no-repeat bg-cover bg-center">
   <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
+    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
       EVENTS
     </p>
   </div>
