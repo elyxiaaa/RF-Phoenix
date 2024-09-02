@@ -58,7 +58,7 @@ export default {
       'slide-in-left': 'slideInLeft 1s ease-out forwards',
       'slide-in-right': 'slideInRight 1s ease-out forwards',
       'slide-up': 'slideUp 1s ease-out forwards',
-      fadeIn: 'fadeIn 2s ease-in-out forwards',
+      fadeIn: 'fadeIn 1s ease-in-out forwards',
     },
     
   },
