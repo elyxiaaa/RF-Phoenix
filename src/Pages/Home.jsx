@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 import { Link } from 'react-router-dom';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
@@ -19,9 +18,7 @@ import UIsection from '../assets/RF-ASSETS/UIsection.png'
 import UiButton from '../assets/RF-ASSETS/button.png'
 
 function Home() {
-  const [total, setTotal] = useState(null);
-const [chipWar, setChipWar] = useState('');
-const [topKiller, setTopKiller] = useState('');
+  const [total, setTotal] = useState();
   const homeSectionRef = useRef(null); // Added ref for Home section
   const eventsSectionRef = useRef(null);
   const leaderboardSectionRef = useRef(null);
@@ -49,21 +46,6 @@ const [topKiller, setTopKiller] = useState('');
     };
 
     totalPlayer();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://phoenix.gamecp.net/web_api/?do=satu');
-      const json = await response.json();
-  
-      if (response.ok) {
-        setTotal(json.totalPlayers); // Assuming total players data is in json.totalPlayers
-        setChipWar(json.chipWarStatus); // Assuming Chip War status data is in json.chipWarStatus
-        setTopKiller(json.topKiller); // Assuming top killer data is in json.topKiller
-      }
-    };
-  
-    fetchData();
   }, []);
 
   useEffect(() => {
@@ -270,20 +252,12 @@ const scrollToDonation = () => {
 
   <div className="relative flex w-screen justify-center items-center mt-[40px]">
     <div className={`flex-col ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
-      <div className="relative">
-        <img src={chipWarStatus} className="h-[259px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Chip War Status" />
-        <p className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">{chipWar}</p>
-      </div>
-
-      <div className="relative mt-[30px]">
-        <img src={totalPlayers} className="h-[346px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
-        <p className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">{total}</p>
-      </div>
+      <img src={chipWarStatus} className="h-[259px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Chip War Status" />
+      <img src={totalPlayers} className="h-[346px] w-[325px] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
     </div>
 
-    <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''} relative ml-[450px]`}>
-      <img src={topKiller} className="h-[636px] w-[328px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
-      <p className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">{topKiller}</p>
+    <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}>
+      <img src={topKiller} className="h-[636px] w-[328px] ml-[450px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
     </div>
   </div>
 </div>
