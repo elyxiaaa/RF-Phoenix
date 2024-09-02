@@ -18,7 +18,7 @@ import UIsection from '../assets/RF-ASSETS/UIsection.png'
 import UiButton from '../assets/RF-ASSETS/button.png'
 
 function Home() {
-  const [total, setTotal] = useState(null);
+  const [total, setTotal] = useState();
   const homeSectionRef = useRef(null); // Added ref for Home section
   const eventsSectionRef = useRef(null);
   const leaderboardSectionRef = useRef(null);
@@ -35,24 +35,19 @@ function Home() {
   const [isEventAnimationReset, setIsEventAnimationReset] = useState(false);
   
 
-  // Fetch data from API
   useEffect(() => {
     const totalPlayer = async () => {
-      try {
-        const response = await fetch('https://phoenix.gamecp.net/web_api/?do=satu');
-        const json = await response.json();
+      const response = await fetch('https://phoenix.gamecp.net/web_api/?do=satu');
+      const json = await response.json();
 
-        if (response.ok) {
-          setTotal(json);
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
+      if (response.ok) {
+        setTotal(json);
       }
     };
 
     totalPlayer();
   }, []);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const height = window.innerHeight;
@@ -258,27 +253,12 @@ const scrollToDonation = () => {
   <div className="relative flex w-screen justify-center items-center mt-[40px]">
     <div className={`flex-col ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
       <img src={chipWarStatus} className="h-[259px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Chip War Status" />
-      {total && (
-              <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                {total.chipWarStatus} {/* Replace with the correct API data */}
-              </div>
-            )}
       <img src={totalPlayers} className="h-[346px] w-[325px] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
-      {total && (
-              <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                {total.totalPlayers} {/* Replace with the correct API data */}
-              </div>
-            )}
-          </div>
+    </div>
 
     <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}>
       <img src={topKiller} className="h-[636px] w-[328px] ml-[450px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
-      {total && (
-              <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                {total.topKiller} {/* Replace with the correct API data */}
-              </div>
-            )}
-          </div>
+    </div>
   </div>
 </div>
 
