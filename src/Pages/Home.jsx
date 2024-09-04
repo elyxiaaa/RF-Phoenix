@@ -10,7 +10,7 @@ import lowerLeft from '../assets/RF-ASSETS/Left.png';
 import lowerMid from '../assets/RF-ASSETS/Middle.png';
 import lowerRight from '../assets/RF-ASSETS/Right.png';
 import topKiller from '../assets/RF-ASSETS/TopKiller.png';
-import totalPlayers from '../assets/RF-ASSETS/TotalPlayers.png';
+import totalPlayer from '../assets/RF-ASSETS/TotalPlayers.png';
 import chipWarStatus from '../assets/RF-ASSETS/ChipWarStatus.png';
 import newPlayer from '../assets/RF-ASSETS/newplayer.png';
 import Item from '../assets/RF-ASSETS/item.png'
@@ -20,7 +20,8 @@ import cashShop from '../assets/RF-ASSETS/Cashshop.png'
 import events from '../assets/RF-ASSETS/events.png'
 
 function Home() {
-  const [total, setTotal] = useState();
+  const [totalPlayers, setTotalPlayers] = useState();
+  const [serverStatus, setServerStatus] = useState()
   const homeSectionRef = useRef(null); // Added ref for Home section
   const eventsSectionRef = useRef(null);
   const leaderboardSectionRef = useRef(null);
@@ -35,7 +36,6 @@ function Home() {
   const [isInterfaceAnimationReset, setIsInterfaceAnimationReset] = useState(false);
   const [isDonationAnimationReset, setIsDonationAnimationReset] = useState(false);
   const [isEventAnimationReset, setIsEventAnimationReset] = useState(false);
-  
 
   useEffect(() => {
     const totalPlayer = async () => {
@@ -43,10 +43,22 @@ function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        setTotal(json);
+        setTotalPlayers(json.result.online_field);
+        setServerStatus(json.result.status_game);
+        console.log(json)
       }
     };
 
+    const topKillers = async () => {
+      const response = await fetch('https://phoenix.gamecp.net/web_api/?do=dua');
+      const json = await response.json();
+
+      if (response.ok) {
+        console.log(json)
+      }
+    };
+
+    topKillers();
     totalPlayer();
   }, []);
 
@@ -176,7 +188,9 @@ function Home() {
         observer.unobserve(interfaceSectionRef.current);
       }
     };
+
   }, []);
+
 
   const scrollToEvents = () => {
   if (eventsSectionRef.current) {
@@ -207,6 +221,8 @@ const scrollToDonation = () => {
     donationSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 };
+
+
   return (
     <>
       <div className="h-screen w-screen bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
@@ -255,7 +271,11 @@ const scrollToDonation = () => {
   <div className="relative flex w-screen justify-center items-center mt-[40px]">
     <div className={`flex-col ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
       <img src={chipWarStatus} className="h-[259px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Chip War Status" />
-      <img src={totalPlayers} className="h-[346px] w-[325px] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
+      <h1 className="text-base-100 text-4xl">{serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}</h1>
+      <div className="overflow-auto">
+      <img src={totalPlayer} className="h-[346px] w-[325px] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
+      <h1 className="text-base-100 text-4xl">{totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}</h1>
+      </div>
     </div>
 
     <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}>
