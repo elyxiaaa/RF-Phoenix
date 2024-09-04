@@ -1,5 +1,5 @@
 import React from 'react';
-import pLogo from '../assets/RF-ASSETS/Logo.png';
+import pLogo from '../assets/unnamed.png';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
@@ -37,7 +37,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
       <div className="navbar bg-black/90 fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <Link to="/">
-            <img src={pLogo} className='object-cover w-[150px] h-[100px] ml-[100px]' alt="Logo" />
+            <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[150px]' alt="Logo" />
           </Link>
         </div>
 
