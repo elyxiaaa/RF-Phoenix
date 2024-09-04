@@ -16,6 +16,8 @@ import newPlayer from '../assets/RF-ASSETS/newplayer.png';
 import Item from '../assets/RF-ASSETS/item.png'
 import UIsection from '../assets/RF-ASSETS/UIsection.png'
 import UiButton from '../assets/RF-ASSETS/button.png'
+import cashShop from '../assets/RF-ASSETS/Cashshop.png'
+import events from '../assets/RF-ASSETS/events.png'
 
 function Home() {
   const [total, setTotal] = useState();
@@ -214,7 +216,7 @@ const scrollToDonation = () => {
     
           <div className="flex ml-[274px]">
             <a href="">
-              <img src={dcImage} className={`h-[50px] w-[50px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Discord" />
+              <img src={dcImage} className={`h-[50px] w-[50px] ${isHomeAnimationReset ?  'animate-slide-in-left' : ''}`} alt="Discord" />
             </a>
 
             <a href="https://www.facebook.com/RFPhoenix55">
@@ -280,27 +282,23 @@ const scrollToDonation = () => {
     <img src={UiButton} className={`absolute right-[190px] mt-[200px] ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
     </Link>
   </div>
-  
+  </div>
 
-</div>
+<div className="h-fit w-screen bg-black bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
+<div className="relative flex justify-center items-center">
+    <img src={cashShop} className="relative h-fit w-[screen]"/>
 
-<div className="h-screen w-screen bg-emerald-300 bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
-  <div className="left-0 flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
-      DONATION
-    </p>
   </div>
 </div>
 
-<div ref={eventsSectionRef} className="h-screen w-full bg-emerald-800 bg-no-repeat bg-cover bg-center">
-  <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isDonationAnimationReset ? 'animate-slide-up' : ''}`}>
-      EVENTS
-    </p>
-  </div>
-
-        <CardEvents />
-      </div>
+<div ref={eventsSectionRef} className="h-screen w-full bg-BG4 bg-no-repeat bg-cover bg-center">
+    <div className="relative flex flex-col justify-center items-center">
+        <div className=" absolute">
+        <CardEvents/>
+        </div>
+        <img src={events} className="mt-[80px]"/>
+    </div>
+</div>
       <Footer />
     </>
   );
