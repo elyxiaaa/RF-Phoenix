@@ -63,7 +63,23 @@ function Home() {
         setChipCcc(json.result.chip_c);
         setCbName(json.result.cb_name);
         setCbRace(json.result.cb_race);
-        setCbStatus(json.result.cb_status);
+        setCbStatus(updatedCbStatus);
+          /*if (data.result.cb_status == "DELIVERING") {
+
+          } else if (data.result.cb_status == "FAILED") { 
+          
+          } else if (data.result.cb_status == "DELIVERED") {
+          
+          }*/
+        let updatedCbStatus = json.result.cb_status;
+            if (updatedCbStatus === 'GOAL') {
+                updatedCbStatus = 'SUCCESS';
+            } else if (updatedCbStatus === 'WAFAT') {
+              updatedCbStatus = 'FAILED';
+            } else if (updatedCbStatus === 'KABUR') {
+              updatedCbStatus = 'RUNNING';
+            }
+
         setWinRace(json.result.win_race);
         console.log(json)
       }
@@ -317,7 +333,7 @@ const scrollToDonation = () => {
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
         <div className="absolute flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
           <p className="text-base-100">WIN RACE:</p>
-          <p className={`ml-[90px] text-green-500 underline underline offset-4 ${winRace}`}>
+          <p className={`ml-[100px] text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
@@ -349,7 +365,7 @@ const scrollToDonation = () => {
 
            <div className="absolute flex ml-[50px] mt-[280px] w-full text-xl font-bold font-Plantino">
           <p className="text-base-100">CHIP BREAKER:</p>
-          <p className={`ml-[20px] text-green-500 underline underline offset-4 ${cbName}`}>
+          <p className={`ml-[100px] max-w-[200px] text-green-500 underline underline offset-4 ${cbName}`}>
             {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
