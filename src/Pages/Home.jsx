@@ -311,7 +311,7 @@ const scrollToDonation = () => {
 
         <div className="absolute flex ml-[50px] mt-[140px] w-full text-2xl font-bold font-Plantino">
           <p className="text-base-100">TOTAL:</p>
-          <p className={`ml-[135px] text-green-500 underline underline-offset-4 ${totalPlayers}`}>
+          <p className={`ml-[135px] text-orange-400 underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
@@ -322,9 +322,9 @@ const scrollToDonation = () => {
         
            
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
-        <div className="absolute flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
+        <div className="absolute max-w-2xl flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
           <p className="text-base-100">WIN RACE:</p>
-          <p className={`ml-[100px] text-green-500 underline underline offset-4 ${winRace}`}>
+          <p className={`ml-[100px] text-orange-400 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
