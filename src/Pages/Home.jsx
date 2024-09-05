@@ -429,7 +429,7 @@ const scrollToDonation = () => {
         <div className="absolute mt-[100px]">
         <CardEvents/>
         </div>
-        <img src={events} className="mt-[120px]"/>
+        <img src={events} className="mt-[140px]"/>
     </div>
 </div>
       <Footer />

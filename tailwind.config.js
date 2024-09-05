@@ -15,7 +15,7 @@ export default {
         'BG': "url('/src/assets/BG.jpg')",
         'BG2': "url('/src/assets/BG2.jpg')",
         'BG3': "url('/src/assets/BG3.jpg')",
-        'BG4': "url('/src/assets/BG4.png')",
+        'BG4': "url('/src/assets/BG4.jpg')",
       },
       backgroundSize: {
         'cover': 'cover', // Added cover
