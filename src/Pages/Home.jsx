@@ -65,13 +65,13 @@ function Home() {
         setCbRace(json.result.cb_race);
         setWinRace(json.result.win_race);
         setCbStatus(json.result.cb_status);
-          /*if (data.result.cb_status == "DELIVERING") {
+          if (data.result.cb_status == "DELIVERING") {
 
           } else if (data.result.cb_status == "FAILED") { 
           
           } else if (data.result.cb_status == "DELIVERED") {
           
-          }*/
+          }
         console.log(json)
       }
     };
