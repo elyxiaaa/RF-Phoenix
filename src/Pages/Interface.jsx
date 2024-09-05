@@ -29,12 +29,12 @@ function Interface ({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNe
             <div className="flex navbar bg-black fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <Link to="/">
-            <img src={pLogo} className='object-cover w-[150px] h-[100px] ml-[100px]' alt="Logo" />
+          <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[150px]' alt="Logo" />
           </Link>
         </div>
 
         <div className="navbar-center">
-        <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Cinzel hidden lg:flex space-x-5">
+        <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
             <li className="relative group">
               <Link to="/"
                 className={getLinkClasses("home")}

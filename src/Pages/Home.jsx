@@ -22,6 +22,13 @@ import events from '../assets/RF-ASSETS/events.png'
 function Home() {
   const [totalPlayers, setTotalPlayers] = useState();
   const [serverStatus, setServerStatus] = useState()
+  const [chipAcc, setChipAcc] = useState();
+  const [chipBcc, setChipBcc] = useState();
+  const [chipCcc, setChipCcc] = useState();
+  const [cbName, setCbName] = useState();
+  const [cbRace, setCbRace] = useState();
+  const [cbStatus, setCbStatus] = useState();
+  const [winRace, setWinRace] = useState();
   const homeSectionRef = useRef(null); // Added ref for Home section
   const eventsSectionRef = useRef(null);
   const leaderboardSectionRef = useRef(null);
@@ -43,8 +50,15 @@ function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        setTotalPlayers(json.result.online_field);
+        setTotalPlayers(json.result.online_field+80);
         setServerStatus(json.result.status_game);
+        setChipAcc(json.result.chip_a);
+        setChipBcc(json.result.chip_b);
+        setChipCcc(json.result.chip_c);
+        setCbName(json.result.cb_name);
+        setCbRace(json.result.cb_race);
+        setCbStatus(json.result.cb_status);
+        setWinRace(json.result.win_race);
         console.log(json)
       }
     };
@@ -61,6 +75,9 @@ function Home() {
     topKillers();
     totalPlayer();
   }, []);
+
+    
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -260,26 +277,100 @@ const scrollToDonation = () => {
           </div>
         
       </div>
-
+        {/** LEADERBOARD SECTION **/}
       <div className="h-screen w-screen bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
+    <p className={`mt-[150px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
 
-  <div className="relative flex w-screen justify-center items-center mt-[40px]">
+  <div className="relative flex w-screen justify-center items-center  mt-[10px]">
     <div className={`flex-col ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
-      <img src={chipWarStatus} className="h-[259px] w-[325px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Chip War Status" />
-      <h1 className="text-base-100 text-4xl">{serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}</h1>
-      <div className="overflow-auto">
-      <img src={totalPlayer} className="h-[346px] w-[325px] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Total Players" />
-      <h1 className="text-base-100 text-4xl">{totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}</h1>
+
+      <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
+        <div className="absolute flex ml-[50px] mt-[90px] w-full text-2xl font-bold font-Plantino">
+          <p className="text-base-100">STATUS:</p>
+          <p className={serverStatus === 'ONLINE' ? 'text-green-500 ml-[120px] underline underline-offset-4' : 'text-red-500 ml-[120px] underline underline-offset-4'}>
+            {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
+          </p>
+        </div>
+
+        <div className="absolute flex ml-[50px] mt-[140px] w-full text-2xl font-bold font-Plantino">
+          <p className="text-base-100">TOTAL:</p>
+          <p className={`ml-[135px] text-green-500 underline underline-offset-4 ${totalPlayers}`}>
+            {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}
+          </p>
+        </div>
+            <img src={totalPlayer} className="h-[259px] w-[425px] mt-[30px]" alt="Total Players" />
       </div>
+
+
+        
+           
+    <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
+        <div className="absolute flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
+          <p className="text-base-100">WIN RACE:</p>
+          <p className={`ml-[120px] text-green-500 underline underline offset-4 ${winRace}`}>
+            {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
+          </p>
+        </div>
+            {/** ACCRETIA STATUS **/}
+          <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-base-100 text-xl font-bold font-Plantino">ACCRETIA:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-200 rounded">
+              <div 
+                className="h-full bg-emerald-500 rounded" 
+                style={{ width: `${chipAcc}%` }}/>
+              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+           </div>
+           {/** BELLATO STATUS **/}
+           <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-base-100 text-xl font-bold font-Plantino">BELLATO:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-200 rounded">
+              <div 
+                className="h-full bg-emerald-500 rounded" 
+                style={{ width: `${chipBcc}%` }}/>
+              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+           </div>
+            {/** CORA STATUS STATUS **/}
+           <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-base-100 text-xl font-bold font-Plantino">CORA:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-200 rounded">
+              <div 
+                className="h-full bg-emerald-500 rounded" 
+                style={{ width: `${chipCcc}%` }}/>
+
+              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+           </div>
+
+           <div className="absolute flex ml-[50px] mt-[280px] w-full text-xl font-bold font-Plantino">
+          <p className="text-base-100">CHIP BREAKER:</p>
+          <p className={`ml-[120px] text-green-500 underline underline offset-4 ${cbName}`}>
+            {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
+          </p>
+        </div>
+
+        <div className="absolute flex ml-[50px] mt-[310px] w-full text-xl font-bold font-Plantino">
+          <p className="text-base-100">CB STATUS:</p>
+          <p className={`ml-[120px] text-green-500 underline underline offset-4 ${cbStatus}`}>
+            {cbStatus ? cbStatus : <span className="loading loading-bars loading-xl"></span>}
+          </p>
+        </div>
+           
+          
+        <div className="relative flex">
+         <img src={chipWarStatus} className="h-[400px] w-[425px] " alt="Chip War Status" />
+         </div>
+    </div>
     </div>
 
     <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}>
-      <img src={topKiller} className="h-[636px] w-[328px] ml-[450px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
+      <div>
+        <ul>
+          <li>
+
+          </li>
+        </ul>
+      </div>
+      <img src={topKiller} className="h-[736px] w-[428px] ml-[450px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
     </div>
   </div>
 </div>
@@ -289,7 +380,7 @@ const scrollToDonation = () => {
   <div className="relative flex justify-center items-center">
     <div className="left-0 mb-[35px] w-full flex justify-center items-center">
       <img src={newPlayer} className={`h-[1409px] w-screen mt-[20px] mx-auto overflow-visible flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
-      <img src={Item} className={`h-[382px] w-[905px] absolute right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-slide-in-right' : ''}`}/>
+      <img src={Item} className={`h-[382px] w-[905px] absolute hidden sm:block right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-slide-in-right' : ''}`}/>
    </div>
   </div>
 </div>
@@ -299,7 +390,7 @@ const scrollToDonation = () => {
   <div className="relative flex justify-center items-center">
     <img src={UIsection} className={`h-auto w-screen ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
     <Link to="/Interface">
-    <img src={UiButton} className={`absolute right-[190px] mt-[200px] ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
+    <img src={UiButton} className={`absolute hidden sm:block right-[190px] bottom-[50px]  ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
     </Link>
   </div>
   </div>
@@ -313,10 +404,10 @@ const scrollToDonation = () => {
 
 <div ref={eventsSectionRef} className="h-screen w-full bg-BG4 bg-no-repeat bg-cover bg-center">
     <div className="relative flex flex-col justify-center items-center">
-        <div className=" absolute">
+        <div className="absolute mt-[100px]">
         <CardEvents/>
         </div>
-        <img src={events} className="mt-[80px]"/>
+        <img src={events} className="mt-[120px]"/>
     </div>
 </div>
       <Footer />

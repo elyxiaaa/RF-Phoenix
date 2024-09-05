@@ -30,12 +30,12 @@ function GuideNavBar({ activeTab }) {
       <div className="navbar bg-black fixed top-0 w-full z-50">
         <div className="navbar-start">
           <RouterLink to="/">
-            <img src={pLogo} className='object-cover w-[150px] h-[100px] ml-[100px]' alt="Logo" />
+          <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[150px]' alt="Logo" />
           </RouterLink>
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Cinzel hidden lg:flex space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
             <li className="relative group">
               <ScrollLink
                 to="combinationSection"
