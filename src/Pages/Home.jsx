@@ -304,7 +304,7 @@ const scrollToDonation = () => {
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
         <div className="absolute flex ml-[50px] mt-[90px] w-full text-2xl font-bold font-Plantino">
           <p className="text-base-100">STATUS:</p>
-          <p className={serverStatus === 'ONLINE' ? 'text-green-500 ml-[120px] underline underline-offset-4' : 'text-red-500 ml-[120px] underline underline-offset-4'}>
+          <p className={serverStatus === 'ONLINE' ? 'text-orange-400 ml-[120px] underline underline-offset-4' : 'text-red-500 ml-[120px] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
@@ -324,7 +324,7 @@ const scrollToDonation = () => {
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
         <div className="absolute max-w-2xl flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
           <p className="text-base-100">WIN RACE:</p>
-          <p className={`ml-[100px] text-orange-400 underline underline offset-4 ${winRace}`}>
+          <p className={`ml-[100px] text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
