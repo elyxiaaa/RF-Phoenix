@@ -63,7 +63,8 @@ function Home() {
         setChipCcc(json.result.chip_c);
         setCbName(json.result.cb_name);
         setCbRace(json.result.cb_race);
-        setCbStatus(updatedCbStatus);
+        setWinRace(json.result.win_race);
+        setCbStatus(json.result.cb_status);
           /*if (data.result.cb_status == "DELIVERING") {
 
           } else if (data.result.cb_status == "FAILED") { 
@@ -71,16 +72,6 @@ function Home() {
           } else if (data.result.cb_status == "DELIVERED") {
           
           }*/
-        let updatedCbStatus = json.result.cb_status;
-            if (updatedCbStatus === 'GOAL') {
-                updatedCbStatus = 'SUCCESS';
-            } else if (updatedCbStatus === 'WAFAT') {
-              updatedCbStatus = 'FAILED';
-            } else if (updatedCbStatus === 'KABUR') {
-              updatedCbStatus = 'RUNNING';
-            }
-
-        setWinRace(json.result.win_race);
         console.log(json)
       }
     };
