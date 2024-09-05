@@ -356,7 +356,7 @@ const scrollToDonation = () => {
 
            <div className="absolute flex ml-[50px] mt-[280px] w-full text-xl font-bold font-Plantino">
           <p className="text-base-100">CHIP BREAKER:</p>
-          <p className={`ml-[100px] max-w-[200px] text-green-500 underline underline offset-4 ${cbName}`}>
+          <p className={`ml-[30px] overflow-hidden text-green-500 underline underline offset-4 ${cbName}`}>
             {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
