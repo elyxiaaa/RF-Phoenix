@@ -57,21 +57,38 @@ function Home() {
           } else {
             setTotalPlayers(onlinePlayers);
           }
-        setServerStatus(json.result.status_game);
+        
+        let updatedServerStatus = json.result.status_game;
+          if (updatedServerStatus === 'OFFLINE') {
+            updatedServerStatus = 'MAINTENANCE';
+          }
+            setServerStatus(updatedServerStatus);
+
+        let updatedCbStatus = json.result.cb_status;
+            if (updatedCbStatus === 'GOAL') {
+              updatedCbStatus = 'DELIVERED';
+            } else if (updatedCbStatus === 'WAFAT') {
+              updatedCbStatus = 'FAILED';
+            } else if (updatedCbStatus === 'KABUR') {
+              updatedCbStatus = 'ONGOING';
+            }
+            setCbStatus(updatedCbStatus);
+        
+        let updatedWinRace = json.result.win_race;
+            if (updatedWinRace === 'Accretia') {
+              updatedWinRace = 'ACCRETIA';
+            } else if (updatedWinRace === 'Bellato') {
+              updatedWinRace = 'BELLATO';
+            } else if (updatedWinRace === 'Cora') {
+              updatedWinRace = 'CORA';
+            }
+            setWinRace(updatedWinRace);
+
         setChipAcc(json.result.chip_a);
         setChipBcc(json.result.chip_b);
         setChipCcc(json.result.chip_c);
         setCbName(json.result.cb_name);
         setCbRace(json.result.cb_race);
-        setWinRace(json.result.win_race);
-        setCbStatus(json.result.cb_status);
-          if (data.result.cb_status == "DELIVERING") {
-
-          } else if (data.result.cb_status == "FAILED") { 
-          
-          } else if (data.result.cb_status == "DELIVERED") {
-          
-          }
         console.log(json)
       }
     };
@@ -303,15 +320,15 @@ const scrollToDonation = () => {
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
         <div className="absolute flex ml-[50px] mt-[90px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-base-100">STATUS:</p>
-          <p className={serverStatus === 'ONLINE' ? 'text-orange-400 ml-[120px] underline underline-offset-4' : 'text-red-500 ml-[120px] underline underline-offset-4'}>
+          <p className="text-cyan-300">STATUS:</p>
+          <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow  ml-[120px] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow ml-[120px] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
         <div className="absolute flex ml-[50px] mt-[140px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-base-100">TOTAL:</p>
-          <p className={`ml-[135px] text-orange-400 underline underline-offset-4 ${totalPlayers}`}>
+          <p className="text-cyan-300 ">TOTAL:</p>
+          <p className={`ml-[135px] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
@@ -323,46 +340,46 @@ const scrollToDonation = () => {
            
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
         <div className="absolute max-w-2xl flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-base-100">WIN RACE:</p>
-          <p className={`ml-[100px] text-green-500 underline underline offset-4 ${winRace}`}>
+          <p className="text-cyan-300 text-shadow-cyanGlow">WIN RACE:</p>
+          <p className={`ml-[100px]  text-shadow-blackGlow text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
             {/** ACCRETIA STATUS **/}
-          <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-base-100 text-xl font-bold font-Plantino">ACCRETIA:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-200 rounded">
+          <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
               <div 
-                className="h-full bg-emerald-500 rounded" 
+                className="h-full bg-orange-400 rounded" 
                 style={{ width: `${chipAcc}%` }}/>
               <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
            </div>
            {/** BELLATO STATUS **/}
-           <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-base-100 text-xl font-bold font-Plantino">BELLATO:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-200 rounded">
+           <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-500 rounded">
               <div 
-                className="h-full bg-emerald-500 rounded" 
+                className="h-full bg-orange-400 rounded" 
                 style={{ width: `${chipBcc}%` }}/>
               <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
            </div>
             {/** CORA STATUS STATUS **/}
-           <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-base-100 text-xl font-bold font-Plantino">CORA:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-200 rounded">
+           <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
+            <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-500 rounded">
               <div 
-                className="h-full bg-emerald-500 rounded" 
+                className="h-full bg-orange-400 rounded" 
                 style={{ width: `${chipCcc}%` }}/>
 
               <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
            </div>
 
            <div className="absolute flex ml-[50px] mt-[280px] w-full text-xl font-bold font-Plantino">
-          <p className="text-base-100">CHIP BREAKER:</p>
+          <p className="text-cyan-300 text-shadow-cyanGlow">CHIP BREAKER:</p>
           <p className={`ml-[30px] overflow-hidden text-green-500 underline underline offset-4 ${cbName}`}>
             {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
         <div className="absolute flex ml-[50px] mt-[310px] w-full text-xl font-bold font-Plantino">
-          <p className="text-base-100">CB STATUS:</p>
+          <p className="text-cyan-300 text-shadow-cyanGlow">CB STATUS:</p>
           <p className={`ml-[100px] text-green-500 underline underline offset-4 ${cbStatus}`}>
             {cbStatus ? cbStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
@@ -379,7 +396,7 @@ const scrollToDonation = () => {
       <div>
         <ul>
           <li>
-
+              
           </li>
         </ul>
       </div>

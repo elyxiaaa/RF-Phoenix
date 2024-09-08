@@ -30,7 +30,15 @@ export default {
       },
     },
     textShadow: {
-      emeraldGlow: '0 0 20px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.6)',
+      emeraldGlow:    '0 0 20px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.6)',
+      whiteGlow:      '0 0 20px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)',
+      blackGlow:      '0 0 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.6)',
+      redGlow:        '0 0 20px rgba(239, 68, 68, 0.8), 0 0 20px rgba(239, 68, 68, 0.6)',
+      orangeGlow:     '0 0 20px rgba(249, 115, 22, 0.8), 0 0 20px rgba(249, 115, 22, 0.6)',
+      blueGlow:       '0 0 20px rgba(96, 165, 250, 0.8), 0 0 20px rgba(96, 165, 250, 0.6)',
+      yellowGlow:     '0 0 20px rgba(253, 224, 71, 0.8), 0 0 20px rgba(253, 224, 71, 0.6)',
+      purpleGlow:     '0 0 20px rgba(232, 121, 249, 0.8), 0 0 20px rgba(232, 121, 249, 0.6)',
+      cyanGlow:       '0 0 20px rgba(103, 232, 249, 0.8), 0 0 20px rgba(103, 232, 249, 0.6)',
     },
     keyframes: {
       shine: {
