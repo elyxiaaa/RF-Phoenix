@@ -18,6 +18,9 @@ import UIsection from '../assets/RF-ASSETS/UIsection.png'
 import UiButton from '../assets/RF-ASSETS/button.png'
 import cashShop from '../assets/RF-ASSETS/Cashshop.png'
 import events from '../assets/RF-ASSETS/events.png'
+import accretiaIcon from '../assets/RF-ASSETS/AccretiaIcon.jpg'
+import bellatoIcon from '../assets/RF-ASSETS/BellatoIcon.jpg'
+import coraIcon from '../assets/RF-ASSETS/CoraIcon.jpg'
 
 function Home() {
   const [totalPlayers, setTotalPlayers] = useState();
@@ -29,6 +32,8 @@ function Home() {
   const [cbRace, setCbRace] = useState();
   const [cbStatus, setCbStatus] = useState();
   const [winRace, setWinRace] = useState();
+  const [killer, setKiller] = useState([]);
+  const [orePercent, setOrepercent] = useState();
   const homeSectionRef = useRef(null); // Added ref for Home section
   const eventsSectionRef = useRef(null);
   const leaderboardSectionRef = useRef(null);
@@ -43,7 +48,13 @@ function Home() {
   const [isInterfaceAnimationReset, setIsInterfaceAnimationReset] = useState(false);
   const [isDonationAnimationReset, setIsDonationAnimationReset] = useState(false);
   const [isEventAnimationReset, setIsEventAnimationReset] = useState(false);
+  const raceImages = {
+    Accretia: accretiaIcon,
+    Bellato: bellatoIcon,
+    Cora: coraIcon,
+  };
 
+  console.log(killer)
   useEffect(() => {
     const totalPlayer = async () => {
       const response = await fetch('https://phoenix.gamecp.net/web_api/?do=satu');
@@ -89,6 +100,7 @@ function Home() {
         setChipCcc(json.result.chip_c);
         setCbName(json.result.cb_name);
         setCbRace(json.result.cb_race);
+        setOrepercent(json.result.orepercent);
         console.log(json)
       }
     };
@@ -98,7 +110,8 @@ function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        console.log(json)
+        setKiller(json.result.killer);
+      
       }
     };
 
@@ -320,18 +333,28 @@ const scrollToDonation = () => {
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
         <div className="absolute flex ml-[50px] mt-[90px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300">STATUS:</p>
+          <p className="text-cyan-300 text-shadow-cyanGlow">STATUS:</p>
           <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow  ml-[120px] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow ml-[120px] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
         <div className="absolute flex ml-[50px] mt-[140px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300 ">TOTAL:</p>
+          <p className="text-cyan-300 text-shadow-cyanGlow ">TOTAL:</p>
           <p className={`ml-[135px] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
+
+      <div className=" flex mt-[100px]">
+        <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300 text-shadow-cyanGlow text-xl font-bold font-Plantino">ORE PERCENT:</p>
+      <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
+        <div className="h-full bg-orange-400 rounded" 
+          style={{ width: `${orePercent}%` }}/>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        </div>          
+
+      </div>
             <img src={totalPlayer} className="h-[259px] w-[425px] mt-[30px]" alt="Total Players" />
       </div>
 
@@ -345,46 +368,58 @@ const scrollToDonation = () => {
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
-            {/** ACCRETIA STATUS **/}
-          <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
-              <div 
-                className="h-full bg-orange-400 rounded" 
-                style={{ width: `${chipAcc}%` }}/>
-              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
-           </div>
-           {/** BELLATO STATUS **/}
-           <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-500 rounded">
-              <div 
-                className="h-full bg-orange-400 rounded" 
-                style={{ width: `${chipBcc}%` }}/>
-              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
-           </div>
-            {/** CORA STATUS STATUS **/}
-           <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
-            <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-500 rounded">
-              <div 
-                className="h-full bg-orange-400 rounded" 
-                style={{ width: `${chipCcc}%` }}/>
+                  
+           <div className="absolute ml-[50px] mt-[100px] w-full text-xl font-bold font-Plantino">
+  {/* Grid container with two columns */}
+  <div className="grid grid-cols-2 gap-x-[30px]">
+    
+    {/* CHIP BREAKER Row */}
+    <div className="text-cyan-300 text-shadow-cyanGlow">
+      CHIP BREAKER:
+    </div>
+    <div className="text-green-500 underline underline-offset-4">
+      {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
+    </div>
 
-              <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
-           </div>
+    {/* CB STATUS Row */}
+    <div className="text-cyan-300 text-shadow-cyanGlow mt-[10px]">
+      CB STATUS:
+    </div>
+    <div className="text-green-500 text-shadow-blackGlow underline underline-offset-4 mt-[10px]">
+      {cbStatus ? cbStatus : <span className="loading loading-bars loading-xl"></span>}
+    </div>
 
-           <div className="absolute flex ml-[50px] mt-[280px] w-full text-xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow">CHIP BREAKER:</p>
-          <p className={`ml-[30px] overflow-hidden text-green-500 underline underline offset-4 ${cbName}`}>
-            {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
-          </p>
-        </div>
+  </div>
+</div>
 
-        <div className="absolute flex ml-[50px] mt-[310px] w-full text-xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow">CB STATUS:</p>
-          <p className={`ml-[100px] text-green-500 underline underline offset-4 ${cbStatus}`}>
-            {cbStatus ? cbStatus : <span className="loading loading-bars loading-xl"></span>}
-          </p>
-        </div>
-           
+
+<div className="relative flex mt-[80px]">
+ {/** ACCRETIA STATUS **/}
+      <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
+      <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
+        <div 
+          className="h-full bg-orange-400 rounded" 
+          style={{ width: `${chipAcc}%` }}/>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+      </div>
+      {/** BELLATO STATUS **/}
+      <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
+      <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-500 rounded">
+        <div 
+          className="h-full bg-orange-400 rounded" 
+          style={{ width: `${chipBcc}%` }}/>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+      </div>
+      {/** CORA STATUS STATUS **/}
+      <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
+      <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-500 rounded">
+        <div 
+          className="h-full bg-orange-400 rounded" 
+          style={{ width: `${chipCcc}%` }}/>
+
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+      </div>
+      </div>
           
         <div className="relative flex">
          <img src={chipWarStatus} className="h-[400px] w-[425px] " alt="Chip War Status" />
@@ -392,18 +427,55 @@ const scrollToDonation = () => {
     </div>
     </div>
 
-    <div className={`${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}>
-      <div>
-        <ul>
-          <li>
-              
-          </li>
-        </ul>
-      </div>
-      <img src={topKiller} className="h-[736px] w-[428px] ml-[450px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Top Killer" />
-    </div>
+    <div className="transition-transform duration-500 ease-in-out transform hover:scale-105">
+        <div className={`relative ${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}> 
+        {/* TopKiller Image */}
+        <img 
+          src={topKiller} 
+          className="h-auto max-h-[60vh] w-auto max-w-[80vw] md:max-h-[736px] md:max-w-[428px] mx-auto md:ml-[300px] transition-transform duration-500 ease-in-out transform hover:scale-105" 
+          alt="Top Killer" 
+        />
+
+          {/* Data Section Positioned on Top */}
+          <div className="absolute top-[55px] left-[330px] w-1/2 h-full flex flex-col justify-start ">
+            {/* Header Section */}
+            <div className="flex justify-between items-center bg-opacity-50 bg-black rounded-t-xl p-3">
+              <div className="w-1/2 text-left text-cyan-300 text-shadow-cyanGlow font-bold text-sm">Top Killers</div>
+              <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow font-bold text-sm">Kill</div>
+              <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow font-bold text-sm">Death</div>
+            </div>
+
+                  {/* Killers Data Section */}
+                  <div className="mt-2 p-2 bg-opacity-50 bg-black rounded">
+                    {killer && killer.map((killer, index) => (
+                      <div key={index} className="flex justify-between items-center px-2 py-2 border-b border-gray-600">
+                        <div className="w-1/2 flex items-center">
+                          <img
+                            src={raceImages[killer.race] || defaultImage}
+                            alt=""
+                            className="h-[30px] w-[30px] object-contain mr-2"
+                          />
+                          <span className="text-cyan-300 text-shadow-cyanGlow text-sm font-semibold">{killer.name}</span>
+                        </div>
+
+                        <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow text-sm">
+                          {killer.kill}
+                        </div>
+
+                        <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow text-sm">
+                          {killer.dead}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+          </div>
+       </div>
+     </div>
+    
+
   </div>
-</div>
+  </div>
+
 
 
 <div className="h-screen w-screen flex bg-BG3 bg-no-repeat bg-full bg-center" ref={newbieRewardsSectionRef}>
@@ -432,9 +504,9 @@ const scrollToDonation = () => {
   </div>
 </div>
 
-<div ref={eventsSectionRef} className="h-screen w-full bg-BG4 bg-no-repeat bg-cover bg-center">
+<div ref={eventsSectionRef} className="h-screen w-screen bg-BG4 bg-no-repeat bg-cover bg-center">
     <div className="relative flex flex-col justify-center items-center">
-        <div className="absolute mt-[100px]">
+        <div className="absolute  mt-[100px]">
         <CardEvents/>
         </div>
         <img src={events} className="mt-[140px]"/>
@@ -446,3 +518,6 @@ const scrollToDonation = () => {
 }
 
 export default Home;
+
+
+     

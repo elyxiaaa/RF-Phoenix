@@ -55,7 +55,7 @@ function GuideNavBar({ activeTab }) {
                 to="dropListSection"
                 smooth={true}
                 duration={500}
-                offset={-100}
+                offset={100}
                 className={getLinkClass("dropList")}
               >
                 <GrResources />

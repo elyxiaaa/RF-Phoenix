@@ -16,6 +16,7 @@ export default {
         'BG2': "url('/src/assets/BG2.jpg')",
         'BG3': "url('/src/assets/BG3.jpg')",
         'BG4': "url('/src/assets/BG4.jpg')",
+        'BG5': "url('/src/assets/BG5.jpg')",
       },
       backgroundSize: {
         'cover': 'cover', // Added cover
@@ -68,6 +69,9 @@ export default {
       'slide-in-right': 'slideInRight 1s ease-out forwards',
       'slide-up': 'slideUp 1s ease-out forwards',
       fadeIn: 'fadeIn 1s ease-in-out forwards',
+    },
+    scale: {
+      '80': '0.8',
     },
     
   },
