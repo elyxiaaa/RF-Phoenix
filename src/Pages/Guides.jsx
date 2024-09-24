@@ -109,9 +109,7 @@ function Guides() {
                 <img src={h11Button} 
                 className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('h11_modal').showModal()}/>
-              </div>
-
-              <div className="flex mt-10 h-[250px] w-[200px] justify-center items-center">
+                
                  <img src={capeButton} 
                  className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
                  onClick={()=>document.getElementById('cape_modal').showModal()}/>
