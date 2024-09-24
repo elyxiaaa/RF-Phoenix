@@ -29,7 +29,7 @@ function CardEvents() {
   };
 
   return (
-    <div className="w-[1300px] m-auto">
+    <div className="w-[1300px]  mx-auto">
       <div className="mt-20">
         <Slider {...settings}>
           {data.map((d, index) => (

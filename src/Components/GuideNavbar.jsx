@@ -69,7 +69,7 @@ function GuideNavBar({ activeTab }) {
                 to="farmSiteSection"
                 smooth={true}
                 duration={500}
-                offset={-100}
+                offset={5}
                 className={getLinkClass("farmSite")}
               >
                 <PiFarm/>

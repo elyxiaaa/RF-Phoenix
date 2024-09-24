@@ -64,7 +64,7 @@ function Home() {
 
         const onlinePlayers = json.result.online_field;
           if (onlinePlayers >= 10) {
-            setTotalPlayers(onlinePlayers + 80);
+            setTotalPlayers(onlinePlayers);
           } else {
             setTotalPlayers(onlinePlayers);
           }
@@ -286,7 +286,13 @@ const scrollToDonation = () => {
   return (
     <>
       <div className="h-screen w-screen bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
-        <NavBar activeTab={activeTab} scrollToEvents={scrollToEvents} scrollToLeaderboard={scrollToLeaderboard} scrollToNewbieRewards={scrollToNewbieRewards} scrollToDonation={scrollToDonation} />
+      <NavBar 
+    activeTab={activeTab} 
+    scrollToEvents={scrollToEvents} 
+    scrollToLeaderboard={scrollToLeaderboard} 
+    scrollToNewbieRewards={scrollToNewbieRewards} 
+    scrollToDonation={scrollToDonation} 
+  />
         <div className="max-w-screen-2xl mx-auto my-[130px] flex flex-col">
             <img src={txtImage} className={`object-fill h-[350px] w-[650px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Text"  />
     
