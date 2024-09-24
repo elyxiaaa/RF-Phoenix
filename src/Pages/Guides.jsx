@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Footer from '../Components/Footer'
 import GuideNavBar from "../Components/GuideNavbar";
-import GuidesArmor from '../assets/RF-ASSETS/ArmorCombination2.png';
-import GuidesSG from '../assets/RF-ASSETS/GuideSG2.png';
-import GuideWeapon from '../assets/RF-ASSETS/GuideWeapon2.png';
 import button3D from '../assets/RF-ASSETS/PB-ASSETS/3dbutton.png';
 import pb3D from '../assets/RF-ASSETS/PB-ASSETS/3dpb.png';
 import elanButton from '../assets/RF-ASSETS/PB-ASSETS/elanbutton.png';
@@ -96,7 +93,7 @@ function Guides() {
                 <p className="text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow">Combination Guide</p>
               </div>
 
-              <div className="flex  mt-40 h-[250px] w-[200px] w-full justify-center items-center">
+              <div className="flex mt-40 h-[250px] w-[200px] w-full justify-center items-center">
                 <img src={abilityExchangeButton} 
                 className ="cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('exchange_modal').showModal()}/>
