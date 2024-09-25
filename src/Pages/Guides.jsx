@@ -93,7 +93,7 @@ function Guides() {
                 <p className="text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow">Combination Guide</p>
               </div>
 
-              <div className="flex mt-40 h-[250px] w-[200px] w-full justify-center items-center">
+              <div className="flex mt-10 h-[250px] w-[200px] justify-center items-center">
                 <img src={abilityExchangeButton} 
                 className ="cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('exchange_modal').showModal()}/>
