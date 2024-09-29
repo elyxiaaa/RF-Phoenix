@@ -174,7 +174,7 @@ function Download ({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNew
         </div>
         <div className="h-screen w-full overflow-hidden bg-BG2 bg-no-repeat bg-cover bg-center p-4" >
     <div className="flex items-center justify-center">
-      <h2 className="text-4xl text-white font-bold font-Platino text-shadow-emeraldGlow mt-[200px]">FULL CLIENT</h2>
+      <h2 className="text-4xl text-white font-bold font-Rokkit text-shadow-emeraldGlow mt-[200px]">FULL CLIENT</h2>
     </div>
     <div className="flex items-center justify-center mt-10">
       <div className="relative flex gap-10 justify-center items-center">
