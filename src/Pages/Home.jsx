@@ -298,7 +298,7 @@ const scrollToDonation = () => {
 
   return (
     <>
-      <div className="h-screen w-full overflow-hidden bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
+      <div className="h-[1080px] w-full overflow-hidden bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
       <NavBar 
     activeTab={activeTab} 
     scrollToEvents={scrollToEvents} 
@@ -307,7 +307,7 @@ const scrollToDonation = () => {
     scrollToDonation={scrollToDonation} 
     scrollToDownload={scrollToDownload}
   />
-        <div className="max-w-screen-2xl mx-auto my-[130px] flex flex-col">
+        <div className="max-w-screen-2xl  mx-auto my-[130px] flex flex-col">
             <img src={txtImage} className={`object-fill h-[350px] w-[650px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Text"  />
     
           <div className="flex ml-[274px]">
@@ -323,18 +323,17 @@ const scrollToDonation = () => {
 
           <div className="flex h-[80px] w-[auto] justify-center items-center">
             <a href="https://phoenix.gamecp.net/index.php" className="block">
-              <img src={lowerLeft} className={`h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Left 
+              <img src={lowerLeft} className={`h-full w-auto  transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Left 
               ${isHomeAnimationReset ?  'animate-slide-in-left' : ''}`} />
             </a>
 
-            <img src={lowerMid} className="h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Middle" />
+            <img src={lowerMid} className="h-full w-auto transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Middle" />
 
             <div className="relative hover:cursor-pointer">
-              <img src={lowerRight} className={`relative h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Right 
+              <img src={lowerRight} className={`relative h-full w-auto  transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Right 
               ${isHomeAnimationReset ?  'animate-slide-in-right' : ''}`} onClick={scrollToDownload}/>
             </div>
           </div>
-        
       </div>
         {/** LEADERBOARD SECTION **/}
       <div className="h-full w-full overflow-hidden bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>

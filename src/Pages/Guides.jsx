@@ -86,49 +86,50 @@ function Guides() {
 
   return (
    <>
-        <div className= "h-screen w-screen bg-BG bg-no-repeat bg-full bg-center">
+        <div className= "h-[1180px] w-full bg-BG4 bg-no-repeat bg-full bg-center">
           <GuideNavBar activeTab={activeTab}/>
-            <div className="flex flex-col items-center justify-center h-screen w-full " ref={combinationSectionRef}>
+            <div className="max-w-screen-2xl mx-auto my-[100px] flex flex-col items-center justify-center" ref={combinationSectionRef}>
               <div className="absolute top-[150px]" id="combinationSection">
                 <p className="text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow">Combination Guide</p>
               </div>
 
-              <div className="flex mt-10 h-[250px] w-[200px] justify-center items-center">
+              <div className="flex mt-[200px] h-auto w-auto justify-center items-center">
                 <img src={abilityExchangeButton} 
-                className ="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className ="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('exchange_modal').showModal()}/>
 
                 <img src={gpButton} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('gp_modal').showModal()}/>
 
                 <img src={h1Button} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('h1_modal').showModal()}/>
 
                 <img src={h11Button} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('h11_modal').showModal()}/>
               </div>
 
-              <div className="flex mt-10 h-[250px] w-[200px] justify-center items-center">
+              <div className="flex mt-10 h-auto w-auto justify-center items-center">
                  <img src={capeButton} 
-                 className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                 className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                  onClick={()=>document.getElementById('cape_modal').showModal()}/>
 
                 <img src={armorButton} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('armor_modal').showModal()}/>
 
                 <img src={shieldButton} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('shield_modal').showModal()}/>
 
                 <img src={weaponButton} 
-                className="cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('weapon_modal').showModal()}/>
 
               </div>
+            </div>
             </div>
 
             <div className="h-[1180px] w-screen bg-BG5 bg-no-repeat bg-full bg-center" ref={dropListSectionRef}>
@@ -213,45 +214,42 @@ function Guides() {
                       />
                     </div>
                   </div>
-
-              <div className="">
-                  {/** New Content Here **/}
               </div>
-            </div>
 
-            <div className="h-[1180px] w-screen bg-BG6  bg-no-repeat bg-full bg-center" ref={farmSiteSectionRef}>
-                <div className="relative flex items-center justify-center h-full" id="farmSiteSection">
-                <img
-          src={cauldronButton}
-          className="h-[664px] mt-20 cursor-pointer"
-          onClick={()=>document.getElementById('cauldron_modal').showModal()}
-        />
-        <img
-          src={cragButton}
-          className="h-[664px] mt-20 cursor-pointer"
-          onClick={()=>document.getElementById('crag_modal').showModal()}
-          
-        />
-        <img
-          src={elanButton2}
-          className="h-[664px] mt-20 cursor-pointer"
-          onClick={()=>document.getElementById('elan_modal').showModal()}
-        />
-        <img
-          src={etherButton}
-          className="h-[664px] mt-20 cursor-pointer"
-          onClick={()=>document.getElementById('ether_modal').showModal()}
-        />
-        <img
-          src={setteButton2}
-          className="h-[664px] mt-20 cursor-pointer"
-          onClick={()=>document.getElementById('sette_modal').showModal()}
-        />
-                </div>
-                
-            </div>
+              <div className="h-[1180px] w-screen bg-BG6 bg-no-repeat bg-full bg-center overflow-hidden" ref={farmSiteSectionRef}>
+  <div className="relative flex items-center justify-center h-full overflow-x-auto" id="farmSiteSection">
+    <img
+      src={cauldronButton}
+      className="h-[664px] cursor-pointer object-contain mx-2"
+      onClick={() => document.getElementById('cauldron_modal').showModal()}
+    />
+    <img
+      src={cragButton}
+      className="h-[664px] cursor-pointer object-contain mx-2"
+      onClick={() => document.getElementById('crag_modal').showModal()}
+    />
+    <img
+      src={elanButton2}
+      className="h-[664px] cursor-pointer object-contain mx-2"
+      onClick={() => document.getElementById('elan_modal').showModal()}
+    />
+    <img
+      src={etherButton}
+      className="h-[664px] cursor-pointer object-contain mx-2"
+      onClick={() => document.getElementById('ether_modal').showModal()}
+    />
+    <img
+      src={setteButton2}
+      className="h-[664px] cursor-pointer object-contain mx-2"
+      onClick={() => document.getElementById('sette_modal').showModal()}
+    />
+  </div>
+</div>
 
-            <div className="h-screen w-full bg-BG4 flex flex-col items-center justify-cneter " ref={serverRulesSectionRef}>
+
+
+
+            <div className="h-screen w-full bg-BG4 flex flex-col items-center justify-center " ref={serverRulesSectionRef}>
               <div className="" id="serverRulesSection">
                   <p className="mt-[100px] text-6xl font-Cinzel font-bold text-white text-shadow-emeraldGlow">Server Rules</p>
               </div>
@@ -434,7 +432,6 @@ function Guides() {
 
             </div>
             <Footer />
-        </div>
 
            {/* Modals Combination */}
            <dialog id="exchange_modal" className="modal">
