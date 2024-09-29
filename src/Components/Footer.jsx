@@ -6,7 +6,7 @@ import FacebookIcon from '../assets/FOOTER/facebook.png'
 function Footer() {
   return (
     <div>
-      <footer className="footer footer-center bg-black text-emerald-500 rounded p-10">
+      <footer className="footer footer-center w-full bg-black text-emerald-500 rounded p-10">
         <nav className="grid grid-flow-col gap-4">
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>

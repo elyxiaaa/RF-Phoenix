@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Modal from "./Modal"; 
+import Modal from "./Modal";
 
 function CardEvents() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -18,18 +18,39 @@ function CardEvents() {
     setCurrentImage('');
   };
 
+  // Settings for the slider with responsiveness
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 4,  // Default for larger screens
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024, // Laptop screen width
+        settings: {
+          slidesToShow: 3,  // Show 3 slides on laptops
+        },
+      },
+      {
+        breakpoint: 768, // Tablet size
+        settings: {
+          slidesToShow: 2,  // Show 2 slides on tablets
+        },
+      },
+      {
+        breakpoint: 640, // Mobile screens
+        settings: {
+          slidesToShow: 1,  // Show 1 slide on mobile
+        },
+      },
+    ],
   };
 
   return (
-    <div className="w-[1300px]  mx-auto">
+    <div className="w-full lg:w-[90%] xl:w-[1300px] mx-auto"> {/* Responsive container width */}
       <div className="mt-20">
         <Slider {...settings}>
           {data.map((d, index) => (
@@ -39,7 +60,7 @@ function CardEvents() {
                   src={d.img}
                   alt=""
                   className="w-full h-full object-cover rounded-t-xl transition-opacity duration-300 hover:opacity-50 cursor-pointer"
-                  onClick={() => handleImageClick(d.img)}  /** Modal will Open */
+                  onClick={() => handleImageClick(d.img)}  // Modal will open
                 />
               </div>
 
@@ -55,32 +76,31 @@ function CardEvents() {
       </div>
 
       {/* Modal */}
-      <Modal 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-        imageSrc={currentImage} 
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        imageSrc={currentImage}
       />
     </div>
   );
 }
 
 const data = [
-  {Title: `Streaming Event`,        img: `/events/StreamingEvent.jpg`},
-  { Title: `Sniping Event`,         img: `/events/Sniping.jpg` },
-  { Title: `Pitboss Invasion`,      img: `/events/PBInvasion.jpg` },
-  { Title: `Zombie Invasion`,       img: `/events/Zombie.jpg` },
-  { Title: `Treasure Hunt`,         img: `/events/Treasure.jpg` },
-  { Title: `Unscrambled Words`,     img: `/events/Unscrambled.jpg` },
-  { Title: `Divine Confrontation`,  img: `/events/DivineConfrontation.jpg` },
-  { Title: `Poster Making`,         img: `/events/GuildPoster.jpg`},
-  { Title: `Guild Bounty`,          img: `/events/GuildBounty.jpg`},
-  { Title: `Chip Breaker`,          img: `/events/cbc.jpg`},
-  { Title: `Like and Share`,        img: `/events/likeandshare.jpg`},
-
-
+  {Title: `Streaming Event`, img: `/events/StreamingEvent.jpg`},
+  {Title: `Sniping Event`, img: `/events/Sniping.jpg`},
+  {Title: `Pitboss Invasion`, img: `/events/PBInvasion.jpg`},
+  {Title: `Zombie Invasion`, img: `/events/Zombie.jpg`},
+  {Title: `Treasure Hunt`, img: `/events/Treasure.jpg`},
+  {Title: `Unscrambled Words`, img: `/events/Unscrambled.jpg`},
+  {Title: `Divine Confrontation`, img: `/events/DivineConfrontation.jpg`},
+  {Title: `Poster Making`, img: `/events/GuildPoster.jpg`},
+  {Title: `Guild Bounty`, img: `/events/GuildBounty.jpg`},
+  {Title: `Chip Breaker`, img: `/events/cbc.jpg`},
+  {Title: `Like and Share`, img: `/events/likeandshare.jpg`},
 ];
 
 export default CardEvents;
+
 
 /*        <>
 <div className="flex text-center justify-center items-center ">

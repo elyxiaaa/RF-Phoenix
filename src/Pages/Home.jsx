@@ -21,6 +21,9 @@ import events from '../assets/RF-ASSETS/events.png'
 import accretiaIcon from '../assets/RF-ASSETS/AccretiaIcon.jpg'
 import bellatoIcon from '../assets/RF-ASSETS/BellatoIcon.jpg'
 import coraIcon from '../assets/RF-ASSETS/CoraIcon.jpg'
+import { FaGoogleDrive } from "react-icons/fa";
+import { SiMega } from "react-icons/si";
+import { SiMediafire } from "react-icons/si";
 
 function Home() {
   const [totalPlayers, setTotalPlayers] = useState();
@@ -40,6 +43,7 @@ function Home() {
   const newbieRewardsSectionRef = useRef(null);
   const donationSectionRef = useRef(null);
   const interfaceSectionRef = useRef(null);
+  const downloadSectionRef = useRef(null); // Added ref for Download section
   const [activeTab, setActiveTab] = useState("home");
   const [isVisible, setIsVisible] = useState(false);
   const [isHomeAnimationReset, setIsHomeAnimationReset] = useState(false);
@@ -134,11 +138,14 @@ function Home() {
       const donationSectionTop = donationSectionRef.current.getBoundingClientRect().top;
       const newbieRewardsSectionTop = newbieRewardsSectionRef.current.getBoundingClientRect().top;
       const interfaceSectionTop = interfaceSectionRef.current.getBoundingClientRect().top;
-      
+      const downloadSectionTop = downloadSectionRef.current.getBoundingClientRect().top; // Add this for download section
+
   
       // Determine which section is in view
       if (homeSectionTop <= height && homeSectionTop >= 0) {
         setActiveTab("home");
+      } else if (downloadSectionTop <= height && downloadSectionTop >= 0) { // Add check for download section
+        setActiveTab("download");
       } else if (donationSectionTop <= height && donationSectionTop >= 0) {
         setActiveTab("donation");
       } else if (eventsSectionTop <= height && eventsSectionBottom >= 0) {
@@ -152,6 +159,7 @@ function Home() {
       } else {
         setActiveTab(""); // No section is currently in view
       }
+      
     };
   
     window.addEventListener('scroll', handleScroll);
@@ -251,6 +259,11 @@ function Home() {
 
   }, []);
 
+  const scrollToDownload = () => {
+    if (downloadSectionRef.current) {
+      downloadSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
+  };
 
   const scrollToEvents = () => {
   if (eventsSectionRef.current) {
@@ -285,13 +298,14 @@ const scrollToDonation = () => {
 
   return (
     <>
-      <div className="h-screen w-screen bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
+      <div className="h-screen w-full bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
       <NavBar 
     activeTab={activeTab} 
     scrollToEvents={scrollToEvents} 
     scrollToLeaderboard={scrollToLeaderboard} 
     scrollToNewbieRewards={scrollToNewbieRewards} 
     scrollToDonation={scrollToDonation} 
+    scrollToDownload={scrollToDownload}
   />
         <div className="max-w-screen-2xl mx-auto my-[130px] flex flex-col">
             <img src={txtImage} className={`object-fill h-[350px] w-[650px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Text"  />
@@ -307,54 +321,50 @@ const scrollToDonation = () => {
           </div>
           </div>
 
-          <div className="relative flex justify-center items-center mt-[100px]">
-            <p className="absolute top-0 mt-[-20px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow animate-shine">
-              JOIN THE BATTLEFIELD
-            </p>
-
+          <div className="flex h-[80px] w-[auto] justify-center items-center">
             <a href="https://phoenix.gamecp.net/index.php" className="block">
-              <img src={lowerLeft} className={`h-[80px] w-[auto] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Left 
+              <img src={lowerLeft} className={`h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Left 
               ${isHomeAnimationReset ?  'animate-slide-in-left' : ''}`} />
             </a>
 
-            <img src={lowerMid} className="h-[80px] w-[auto] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Middle" />
+            <img src={lowerMid} className="h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Middle" />
 
-            <a href="" className="relative">
-              <img src={lowerRight} className={`h-[80px] w-[auto] mt-[30px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Right 
-              ${isHomeAnimationReset ?  'animate-slide-in-right' : ''}`} />
-            </a>
+            <div className="relative hover:cursor-pointer">
+              <img src={lowerRight} className={`relative h-full w-auto mb-[100px] transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Right 
+              ${isHomeAnimationReset ?  'animate-slide-in-right' : ''}`} onClick={scrollToDownload}/>
+            </div>
           </div>
         
       </div>
         {/** LEADERBOARD SECTION **/}
-      <div className="h-screen w-screen bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
+      <div className="h-full w-full bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
     <p className={`mt-[150px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
 
-  <div className="relative flex w-screen justify-center items-center  mt-[10px]">
-    <div className={`flex-col ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
+  <div className="relative flex w-full justify-center items-center  mt-[10px]">
+    <div className={`flex-col mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className="absolute flex ml-[50px] mt-[90px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow">STATUS:</p>
-          <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow  ml-[120px] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow ml-[120px] underline underline-offset-4'}>
+        <div className="absolute flex ml-[20%] mt-[90px] w-full font-bold font-Plantino">
+          <p className="text-cyan-300 text-shadow-cyanGlow text-lg">STATUS:</p>
+          <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow text-lg ml-[20%] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow text-lg ml-[20%] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
-        <div className="absolute flex ml-[50px] mt-[140px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow ">TOTAL:</p>
-          <p className={`ml-[135px] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
-            {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-xl"></span>}
+        <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-Plantino">
+          <p className="text-cyan-300 text-shadow-cyanGlow text-lg">TOTAL:</p>
+          <p className={`text-lg ml-[22%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
+            {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-md"></span>}
           </p>
         </div>
 
       <div className=" flex mt-[100px]">
-        <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300 text-shadow-cyanGlow text-xl font-bold font-Plantino">ORE PERCENT:</p>
-      <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
+        <p className="absolute hidden sm:block ml-[20%] mt-[90px] text-cyan-300 text-shadow-cyanGlow text-lg font-bold font-Plantino">ORE:</p>
+      <div className="absolute hidden sm:block ml-[20%] mt-[130px] w-[200px] h-[20px] bg-gray-500 rounded">
         <div className="h-full bg-orange-400 rounded" 
           style={{ width: `${orePercent}%` }}/>
         <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
@@ -368,57 +378,56 @@ const scrollToDonation = () => {
         
            
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
-        <div className="absolute max-w-2xl flex ml-[50px] mt-[60px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow">WIN RACE:</p>
-          <p className={`ml-[100px]  text-shadow-blackGlow text-green-500 underline underline offset-4 ${winRace}`}>
+        <div className="absolute flex ml-[15%] mt-[60px] w-full font-bold font-Plantino">
+          <p className="text-xl text-cyan-300 text-shadow-cyanGlow">WIN RACE:</p>
+          <p className={`ml-[15%] text-xl text-shadow-blackGlow text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
                   
-           <div className="absolute ml-[50px] mt-[100px] w-full text-xl font-bold font-Plantino">
-  {/* Grid container with two columns */}
-  <div className="grid grid-cols-2 gap-x-[30px]">
-    
-    {/* CHIP BREAKER Row */}
-    <div className="text-cyan-300 text-shadow-cyanGlow">
-      CHIP BREAKER:
-    </div>
-    <div className="text-green-500 underline underline-offset-4">
-      {cbName ? cbName : <span className="loading loading-bars loading-xl"></span>}
-    </div>
+           <div className="absolute ml-[15%] mt-[100px] w-full font-bold font-Plantino">
+              <div className="grid grid-cols-2 ">
+                
+                {/* CHIP BREAKER Row */}
+                <div className="text-lg text-cyan-300 text-shadow-cyanGlow">
+                  BREAKER:
+                </div>
+                <div className="text-lg text-green-500 underline underline-offset-4">
+                  {cbName ? cbName : <span className="loading loading-bars"></span>}
+                </div>
 
-    {/* CB STATUS Row */}
-    <div className="text-cyan-300 text-shadow-cyanGlow mt-[10px]">
-      CB STATUS:
-    </div>
-    <div className="text-green-500 text-shadow-blackGlow underline underline-offset-4 mt-[10px]">
-      {cbStatus ? cbStatus : <span className="loading loading-bars loading-xl"></span>}
-    </div>
+                {/* CB STATUS Row */}
+                <div className="text-lg text-cyan-300 text-shadow-cyanGlow ">
+                  CB STATUS:
+                </div>
+                <div className="text-lg text-green-500 text-shadow-blackGlow underline underline-offset-4">
+                  {cbStatus ? cbStatus : <span className="loading loading-bars"></span>}
+                </div>
 
-  </div>
-</div>
+              </div>
+          </div>
 
 
 <div className="relative flex mt-[80px]">
  {/** ACCRETIA STATUS **/}
-      <p className="absolute hidden sm:block ml-[90px] mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
-      <div className="absolute hidden sm:block ml-[90px] mt-[130px] w-[250px] h-[20px] bg-gray-500 rounded">
+      <p className="absolute hidden sm:block ml-20 mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
+      <div className="absolute hidden sm:block ml-20 mt-[130px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipAcc}%` }}/>
         <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** BELLATO STATUS **/}
-      <p className="absolute hidden sm:block ml-[90px] mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
-      <div className="absolute hidden sm:block ml-[90px] mt-[190px] w-[250px] h-[20px] bg-gray-500 rounded">
+      <p className="absolute hidden sm:block ml-20 mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
+      <div className="absolute hidden sm:block ml-20 mt-[190px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipBcc}%` }}/>
         <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** CORA STATUS STATUS **/}
-      <p className="absolute hidden sm:block ml-[90px] mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
-      <div className="absolute hidden sm:block ml-[90px] mt-[250px] w-[250px] h-[20px] bg-gray-500 rounded">
+      <p className="absolute hidden sm:block ml-20 mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
+      <div className="absolute hidden sm:block ml-20 mt-[250px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipCcc}%` }}/>
@@ -434,7 +443,7 @@ const scrollToDonation = () => {
     </div>
 
     <div className="transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className={`relative ${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}> 
+        <div className={`flex mb-[200px] ${isLeaderboardAnimationReset ? 'animate-fadeIn' : ''}`}> 
         {/* TopKiller Image */}
         <img 
           src={topKiller} 
@@ -484,17 +493,17 @@ const scrollToDonation = () => {
 
 
 
-<div className="h-screen w-screen flex bg-BG3 bg-no-repeat bg-full bg-center" ref={newbieRewardsSectionRef}>
+<div className="h-screen w-full flex bg-BG3 bg-no-repeat bg-full bg-center" ref={newbieRewardsSectionRef}>
   <div className="relative flex justify-center items-center">
     <div className="left-0 mb-[35px] w-full flex justify-center items-center">
-      <img src={newPlayer} className={`h-[1409px] w-screen mt-[20px] mx-auto overflow-visible flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
-      <img src={Item} className={`h-[382px] w-[905px] absolute hidden sm:block right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-slide-in-right' : ''}`}/>
+      <img src={newPlayer} className={`h-[1409px] w-screen mt-[20px] mx-auto overflow-hidden flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
+      <img src={Item} className={`h-[382px] w-[905px] absolute hidden sm:block right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-fadeIn' : ''}`}/>
    </div>
   </div>
 </div>
 
 {/**Interface Section */}
-<div className="h-fit w-screen flex py-20 bg-black bg-no-repeat bg-center" ref={interfaceSectionRef}>  
+<div className="h-fit w-full flex py-20 bg-black bg-no-repeat bg-center" ref={interfaceSectionRef}>  
   <div className="relative flex justify-center items-center">
     <img src={UIsection} className={`h-auto w-screen ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
     <Link to="/Interface">
@@ -503,21 +512,58 @@ const scrollToDonation = () => {
   </div>
   </div>
 
-<div className="h-fit w-screen bg-black bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
+  <div className="h-fit w-full bg-black bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
 <div className="relative flex justify-center items-center">
-    <img src={cashShop} className="relative h-fit w-[screen]"/>
+    <img src={cashShop} className="relative h-fit w-screen"/>
 
   </div>
 </div>
 
-<div ref={eventsSectionRef} className="h-screen w-screen bg-BG4 bg-no-repeat bg-cover bg-center">
+<div ref={eventsSectionRef} className="h-screen w-full bg-BG4 bg-no-repeat bg-cover bg-center">
     <div className="relative flex flex-col justify-center items-center">
-        <div className="absolute  mt-[100px]">
+        <div className="absolute mt-[100px]">
         <CardEvents/>
         </div>
         <img src={events} className="mt-[140px]"/>
     </div>
 </div>
+
+
+  <div className="h-fit w-full bg-BG6 bg-no-repeat bg-cover bg-center p-4" ref={downloadSectionRef}>
+    <div className="flex items-center justify-center">
+      <h2 className="text-4xl text-white font-bold font-Platino text-shadow-emeraldGlow">FULL CLIENT</h2>
+    </div>
+    <div className="flex items-center justify-center mt-5">
+      <div className="relative flex gap-10 justify-center items-center">
+        <a
+          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+        <FaGoogleDrive />
+          GDRIVE
+        </a>
+        <a
+          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+        <SiMediafire />
+          MEDIAFIRE
+        </a>
+        <a
+          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+          <SiMega />
+          MEGA
+        </a>
+      </div>
+    </div>
+  </div>
+
+
       <Footer />
     </>
   );

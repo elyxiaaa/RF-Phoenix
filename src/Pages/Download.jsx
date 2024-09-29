@@ -103,7 +103,13 @@ function Download ({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNew
          <div className="navbar-end"></div>
         </div>
                 <div className="h-screen w-screen bg-BG bg-no-repeat bg-full bg-center">
-
+                  <div className="max-w-2xl mx-auto">
+                    <div className="absolute flex">
+                      <button className="btn btn-outline btn-accent">Accent</button>
+                      <button className="btn btn-outline btn-accent">Accent</button>
+                      <button className="btn btn-outline btn-accent">Accent</button>
+                    </div>
+                  </div>
                 </div>
         </>
     )

@@ -8,8 +8,9 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdEmojiEvents } from "react-icons/md";
 import { FaRankingStar } from "react-icons/fa6";
+import { MdOutlineCloudDownload } from "react-icons/md";
 
-function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbieRewards, scrollToDonation }) {
+function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownload, scrollToNewbieRewards, scrollToDonation }) {
   const navigate = useNavigate();
 
   const getLinkClasses = (tabName) => {
@@ -37,12 +38,12 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
       <div className="navbar bg-black/90 fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <Link to="/">
-            <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[150px]' alt="Logo" />
+            <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[250px] lg:ml-20' alt="Logo" />
           </Link>
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex lg:ml-20 space-x-5">
             <li className="relative group">
               <a
                 onClick={handleHomeClick}
@@ -102,21 +103,24 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
                 <a className={getLinkClasses("guide")}>
                   GAME GUIDES
                   <FiArrowUpRight className="mr-0 text-2xl" />
-                  <span className={getUnderlineClasses("download")} />
+                  <span className={getUnderlineClasses("guide")} />
                 </a>
               </li>
             </Link>
 
-
-            <Link to="/Download">
-              <li className="relative group">
-                <a className={getLinkClasses("download")}>
-                  DOWNLOAD
-                  <FiArrowUpRight className="mr-0 text-2xl" />
-                  <span className={getUnderlineClasses("download")} />
-                </a>
-              </li>
-            </Link>
+            <li className="relative group">
+  <a
+    onClick={(e) => {
+      e.preventDefault();
+      scrollToDownload();
+    }}
+    className={getLinkClasses("download")}
+  >
+    DOWNLOAD
+    <MdOutlineCloudDownload className="mr-0 text-2xl" />
+    <span className={getUnderlineClasses("download")} />
+  </a>
+</li>
           </ul>
         </div>
 
@@ -172,15 +176,13 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNewbie
 
 
 
-            <Link to="/Download">
-              <li className="relative group">
-                <a className={getLinkClasses("download")}>
-                  DOWNLOAD
-                  <FiArrowUpRight className="mr-0 text-2xl" />
-                  <span className={getUnderlineClasses("download")} />
-                </a>
-              </li>
-            </Link>
+            <li className="relative group">
+              <a onClick={(e) => {e.preventDefault();scrollToDownload();}} className={getLinkClasses("download")}>
+                <MdOutlineCloudDownload className="mr-0 text-2xl" />
+                DOWNLOAD
+                <span className={getUnderlineClasses("download")} />
+              </a>
+            </li>
           
           </ul>
         </div>
