@@ -298,7 +298,7 @@ const scrollToDonation = () => {
 
   return (
     <>
-      <div className="h-screen w-full bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
+      <div className="h-screen w-full overflow-hidden bg-BG bg-no-repeat bg-full bg-center" ref={homeSectionRef}>
       <NavBar 
     activeTab={activeTab} 
     scrollToEvents={scrollToEvents} 
@@ -337,14 +337,14 @@ const scrollToDonation = () => {
         
       </div>
         {/** LEADERBOARD SECTION **/}
-      <div className="h-full w-full bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
+      <div className="h-full w-full overflow-hidden bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
     <p className={`mt-[150px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
 
-  <div className="relative flex w-full justify-center items-center  mt-[10px]">
+  <div className="relative flex w-full overflow-hidden justify-center items-center  mt-[10px]">
     <div className={`flex-col mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
@@ -357,7 +357,7 @@ const scrollToDonation = () => {
 
         <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-Plantino">
           <p className="text-cyan-300 text-shadow-cyanGlow text-lg">TOTAL:</p>
-          <p className={`text-lg ml-[22%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
+          <p className={`text-lg ml-[20%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-md"></span>}
           </p>
         </div>
@@ -497,13 +497,13 @@ const scrollToDonation = () => {
   <div className="relative flex justify-center items-center">
     <div className="left-0 mb-[35px] w-full flex justify-center items-center">
       <img src={newPlayer} className={`h-[1409px] w-screen mt-[20px] mx-auto overflow-hidden flex flex-col ${isNewbieRewardsAnimationReset ? 'animate-slide-up' : ''}`}/>
-      <img src={Item} className={`h-[382px] w-[905px] absolute hidden sm:block right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-fadeIn' : ''}`}/>
+      <img src={Item} className={`h-[382px] w-[905px] absolute hidden lg:block right-20 mb-[300px]  ${isNewbieRewardsAnimationReset ? 'animate-fadeIn' : ''}`}/>
    </div>
   </div>
 </div>
 
 {/**Interface Section */}
-<div className="h-fit w-full flex py-20 bg-black bg-no-repeat bg-center" ref={interfaceSectionRef}>  
+<div className="h-fit w-full overflow-hidden flex py-20 bg-black bg-no-repeat bg-center" ref={interfaceSectionRef}>  
   <div className="relative flex justify-center items-center">
     <img src={UIsection} className={`h-auto w-screen ${isNewbieRewardsAnimationReset ?  'animate-fadeIn' : ''}`}/>
     <Link to="/Interface">
@@ -519,7 +519,7 @@ const scrollToDonation = () => {
   </div>
 </div>
 
-<div ref={eventsSectionRef} className="h-screen w-full bg-BG4 bg-no-repeat bg-cover bg-center">
+<div ref={eventsSectionRef} className="h-screen w-full overflow-hidden bg-BG4 bg-no-repeat bg-cover bg-center">
     <div className="relative flex flex-col justify-center items-center">
         <div className="absolute mt-[100px]">
         <CardEvents/>
@@ -529,7 +529,7 @@ const scrollToDonation = () => {
 </div>
 
 
-  <div className="h-fit w-full bg-BG6 bg-no-repeat bg-cover bg-center p-4" ref={downloadSectionRef}>
+  <div className="h-fit w-full overflow-hidden bg-BG6 bg-no-repeat bg-cover bg-center p-4" ref={downloadSectionRef}>
     <div className="flex items-center justify-center">
       <h2 className="text-4xl text-white font-bold font-Platino text-shadow-emeraldGlow">FULL CLIENT</h2>
     </div>

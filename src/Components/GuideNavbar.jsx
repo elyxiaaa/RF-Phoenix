@@ -27,7 +27,7 @@ function GuideNavBar({ activeTab }) {
 
   return (
     <>
-      <div className="navbar bg-black fixed top-0 w-full z-50">
+      <div className="navbar bg-black fixed top-0 w-screen z-50">
         <div className="navbar-start">
           <RouterLink to="/">
           <img src={pLogo} className='object-cover w-[80px] h-[100px] ml-[150px]' alt="Logo" />
@@ -35,7 +35,7 @@ function GuideNavBar({ activeTab }) {
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden xl:flex space-x-5">
             <li className="relative group">
               <ScrollLink
                 to="combinationSection"
@@ -95,7 +95,7 @@ function GuideNavBar({ activeTab }) {
         </div>
 
         <div className="navbar-end"></div>
-        <div className="dropdown dropdown-end block lg:hidden mb-5">
+        <div className="dropdown dropdown-end block xl:hidden mb-5">
           <div tabIndex={0} role="button" className="btn btn-ghost m-1">
             <a className="text-4xl text-base-100"><GiHamburgerMenu/></a>
           </div>

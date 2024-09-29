@@ -43,7 +43,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex lg:ml-20 space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden xl:flex lg:ml-20 space-x-5">
             <li className="relative group">
               <a
                 onClick={handleHomeClick}
@@ -125,7 +125,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
         </div>
 
         <div className="navbar-end"></div>
-        <div className="dropdown dropdown-end block lg:hidden mb-5">
+        <div className="dropdown dropdown-end block xl:hidden mb-5">
           <div tabIndex={0} role="button" className="btn btn-ghost m-1">
             <a className="text-4xl text-base-100"><GiHamburgerMenu /></a>
           </div>
