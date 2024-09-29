@@ -43,7 +43,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden xl:flex lg:ml-20 space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Rokkit hidden xl:flex lg:ml-20 space-x-5">
             <li className="relative group">
               <a
                 onClick={handleHomeClick}
@@ -107,20 +107,21 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
                 </a>
               </li>
             </Link>
+            
 
             <li className="relative group">
-  <a
-    onClick={(e) => {
-      e.preventDefault();
-      scrollToDownload();
-    }}
-    className={getLinkClasses("download")}
-  >
-    DOWNLOAD
-    <MdOutlineCloudDownload className="mr-0 text-2xl" />
-    <span className={getUnderlineClasses("download")} />
-  </a>
-</li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToDownload();
+                }}
+                className={getLinkClasses("download")}
+              >
+                DOWNLOAD
+                <MdOutlineCloudDownload className="mr-0 text-2xl" />
+                <span className={getUnderlineClasses("download")} />
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -129,7 +130,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
           <div tabIndex={0} role="button" className="btn btn-ghost m-1">
             <a className="text-4xl text-base-100"><GiHamburgerMenu /></a>
           </div>
-          <ul tabIndex={0} className="dropdown-content menu bg-black rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Platino">
+          <ul tabIndex={0} className="dropdown-content menu bg-black rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Rokkit">
 
           <li className="relative group">
               <a onClick={handleHomeClick} className={getLinkClasses("home")}>
@@ -183,6 +184,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
                 <span className={getUnderlineClasses("download")} />
               </a>
             </li>
+            
           
           </ul>
         </div>

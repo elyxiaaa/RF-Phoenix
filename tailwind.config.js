@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         Platino: ['Bitter', 'sans-serif'],
         Cinzel: ['Cinzel', 'sans-serif'],
+        Rokkit: ['Rokkit', 'sans-serif'],
       },
       backgroundImage: {
         'BG': "url('/src/assets/BG.jpg')",

@@ -35,7 +35,7 @@ function GuideNavBar({ activeTab }) {
         </div>
 
         <div className="navbar-center">
-          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden xl:flex space-x-5">
+          <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Rokkit hidden xl:flex space-x-5">
             <li className="relative group">
               <ScrollLink
                 to="combinationSection"
@@ -99,7 +99,7 @@ function GuideNavBar({ activeTab }) {
           <div tabIndex={0} role="button" className="btn btn-ghost m-1">
             <a className="text-4xl text-base-100"><GiHamburgerMenu/></a>
           </div>
-          <ul tabIndex={0} className="dropdown-content menu bg-black rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Cinzel">
+          <ul tabIndex={0} className="dropdown-content menu bg-black rounded-box z-[1] w-52 p-2 shadow font-extrabold text-md text-gray-900 font-Rokkit">
 
             <li className="relative group">
                 <ScrollLink

@@ -338,7 +338,7 @@ const scrollToDonation = () => {
         {/** LEADERBOARD SECTION **/}
       <div className="h-full w-full overflow-hidden bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-4xl font-Platino font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
+    <p className={`mt-[150px] text-4xl font-Rokkit font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
@@ -442,7 +442,7 @@ const scrollToDonation = () => {
     </div>
 
     <div className="transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className={`flex mb-[200px] ${isLeaderboardAnimationReset ? 'animate-fadeIn' : ''}`}> 
+        <div className={`flex mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}> 
         {/* TopKiller Image */}
         <img 
           src={topKiller} 
