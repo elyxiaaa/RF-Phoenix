@@ -99,7 +99,7 @@ function NavBar({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToDownlo
             </li>
 
             <Link to="/Guides">
-              <li className="relative group">
+              <li className="relative group"> 
                 <a className={getLinkClasses("guide")}>
                   GAME GUIDES
                   <FiArrowUpRight className="mr-0 text-2xl" />
