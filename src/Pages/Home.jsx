@@ -533,9 +533,9 @@ const scrollToDonation = () => {
       <h2 className="text-4xl text-white font-bold font-Platino text-shadow-emeraldGlow">FULL CLIENT</h2>
     </div>
     <div className="flex items-center justify-center mt-5">
-      <div className="relative flex gap-10 justify-center items-center">
+    <div className="relative flex gap-10 justify-center items-center">
         <a
-          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          href="https://drive.google.com/file/d/1lZKNaZW71IEvC8cMlL2Y3x486BTzPdpO/view"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
@@ -543,7 +543,7 @@ const scrollToDonation = () => {
           GDRIVE
         </a>
         <a
-          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          href="https://www.mediafire.com/file/x48ld4u0vu5j1ru/RF_Phx_2232.rar/file"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
@@ -551,7 +551,7 @@ const scrollToDonation = () => {
           MEDIAFIRE
         </a>
         <a
-          href="https://drive.google.com/drive/u/0/folders/1VtecgIsZtcznEWVACZfB8ghyFylxMaTl"
+          href="https://mega.nz/file/l393RSjR#591lKuUvObKIMI0no4nRMOkW4OaqD9ZNYvbjpGiLvNw"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
