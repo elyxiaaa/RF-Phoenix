@@ -445,11 +445,11 @@ const scrollToDonation = () => {
     </div>
 
     <div className="transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className={`flex mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}> 
+        <div className={`flex mb-[160px] ${isLeaderboardAnimationReset ? 'animate-slide-in-right' : ''}`}> 
         {/* TopKiller Image */}
         <img 
           src={topKiller} 
-          className="h-auto max-h-[60vh] w-auto max-w-[80vw] md:max-h-[736px] md:max-w-[428px] mx-auto md:ml-[300px] transition-transform duration-500 ease-in-out transform hover:scale-105" 
+          className="h-auto max-h-[60vh] w-auto max-w-[80vw] md:max-h-[736px] md:max-w-[428px] mx-auto md:ml-[300px] " 
           alt="Top Killer" 
         />
 
@@ -457,9 +457,9 @@ const scrollToDonation = () => {
           <div className="absolute top-[55px] left-[330px] w-1/2 h-full flex flex-col justify-start ">
             {/* Header Section */}
             <div className="flex justify-between items-center bg-opacity-50 bg-black rounded-t-xl p-3">
-              <div className="w-1/2 text-left text-cyan-300 text-shadow-cyanGlow font-bold font-COP1 text-sm">Top Killers</div>
-              <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow font-bold font-COP1 text-sm">Kill</div>
-              <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow font-bold font-COP1 text-sm">Death</div>
+              <div className="w-1/2 text-left text-cyan-300 text-shadow-cyanGlow font-bold font-COP1 text-sm">TOP KILLERS</div>
+              <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow font-bold font-COP1 text-sm">KILLS</div>
+              <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow font-bold font-COP1 text-sm">DEATHS</div>
             </div>
 
                   {/* Killers Data Section */}
