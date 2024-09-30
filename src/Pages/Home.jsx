@@ -322,7 +322,7 @@ const scrollToDonation = () => {
           </div>
           </div>
           <div className="flex items-center justify-center">
-            <h2 className="text-3xl font-COP1 font-bold text-white text-shadow-emeraldGlow mb-10">JOIN THE BATTLEFIELD</h2>
+            <h2 className={`text-3xl font-COP1 font-bold text-white text-shadow-emeraldGlow mb-10 ${isHomeAnimationReset ? 'animate-fadeIn' : ''}`}>JOIN THE BATTLEFIELD</h2>
           </div>
           <div className="flex h-[80px] w-[auto] justify-center items-center">
             <a href="https://phoenix.gamecp.net/index.php" className="block">
