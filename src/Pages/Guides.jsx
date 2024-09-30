@@ -41,6 +41,13 @@ import shieldBG from '../assets/RF-ASSETS/COMBI-ASSETS/typecshield.jpg'
 import shieldButton from '../assets/RF-ASSETS/COMBI-ASSETS/TYPECSHIELD.png'
 import weaponBG from '../assets/RF-ASSETS/COMBI-ASSETS/typecwep.jpg'
 import weaponButton from '../assets/RF-ASSETS/COMBI-ASSETS/TypeCwep.png'
+import lgsBG from '../assets/RF-ASSETS/COMBI-ASSETS/LGS.jpg'
+import lgsButton from '../assets/RF-ASSETS/COMBI-ASSETS/LGS.png'
+import sgsBG from '../assets/RF-ASSETS/COMBI-ASSETS/SGS.jpg'
+import sgsButton from '../assets/RF-ASSETS/COMBI-ASSETS/SGS.png'
+import excelBG from '../assets/RF-ASSETS/COMBI-ASSETS/TYPECEXCELSIAR.jpg'
+import excelButton from '../assets/RF-ASSETS/COMBI-ASSETS/typecexcelsiar.png'
+
 
 function Guides() {
   const combinationSectionRef = useRef(null);
@@ -86,48 +93,60 @@ function Guides() {
 
   return (
    <>
-        <div className= "h-[1180px] w-full bg-BG4 bg-no-repeat bg-full bg-center">
+        <div className= "h-[1180px] w-screen bg-BG4 bg-no-repeat bg-full bg-center overflow-hidden" v>
           <GuideNavBar activeTab={activeTab}/>
-            <div className="max-w-screen-2xl mx-auto my-[100px] flex flex-col items-center justify-center" ref={combinationSectionRef}>
+            <div className="max-w-screen-2xl mx-auto my-[100px] flex flex-col items-center justify-center ">
               <div className="absolute top-[150px]" id="combinationSection">
                 <p className="text-6xl font-Rokkit font-bold text-white text-shadow-emeraldGlow">COMBINATION GUIDE</p>
               </div>
 
-              <div className="flex mt-[200px] h-auto w-auto justify-center items-center">
+              <div className="flex mt-[200px] object-contain h-auto w-auto justify-center items-center">
                 <img src={abilityExchangeButton} 
-                className ="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className ="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('exchange_modal').showModal()}/>
 
                 <img src={gpButton} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('gp_modal').showModal()}/>
 
                 <img src={h1Button} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('h1_modal').showModal()}/>
 
                 <img src={h11Button} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('h11_modal').showModal()}/>
+
+                <img src={lgsButton} 
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                onClick={()=>document.getElementById('lgs_modal').showModal()}/>
+
+                <img src={sgsButton} 
+                className="w-[200px] [250px] object-containcursor-pointer transform transition-transform duration-300 hover:scale-105"
+                onClick={()=>document.getElementById('sgs_modal').showModal()}/>
+
               </div>
 
               <div className="flex mt-10 h-auto w-auto justify-center items-center">
                  <img src={capeButton} 
-                 className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                 className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                  onClick={()=>document.getElementById('cape_modal').showModal()}/>
 
                 <img src={armorButton} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain  cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('armor_modal').showModal()}/>
 
                 <img src={shieldButton} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('shield_modal').showModal()}/>
 
                 <img src={weaponButton} 
-                className="w-[200px] [250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={()=>document.getElementById('weapon_modal').showModal()}/>
 
+                <img src={excelButton} 
+                className="w-[200px] [250px] object-contain cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                onClick={()=>document.getElementById('excel_modal').showModal()}/>
               </div>
             </div>
             </div>
@@ -251,7 +270,7 @@ function Guides() {
 
             <div className="h-screen w-full bg-BG4 flex flex-col items-center justify-center " ref={serverRulesSectionRef}>
               <div className="" id="serverRulesSection">
-                  <p className="mt-[100px] text-6xl font-Platino font-bold text-white text-shadow-emeraldGlow">SERVER RULES</p>
+                  <p className="mt-[100px] text-6xl font-Rokkit font-bold text-white text-shadow-emeraldGlow">SERVER RULES</p>
               </div>
 
 
@@ -259,7 +278,7 @@ function Guides() {
               <div className="overflow-x-auto w-3/4 bg-black/50 rounded-lg mt-10 mb-10 p-5">
                 <table className="table text-emerald-300">
                   {/* head */}
-                  <thead className="text-4xl text-white text-shadow-emeraldGlow font-bold">
+                  <thead className="text-4xl text-white text-shadow-emeraldGlow font-bold font-Rokkit">
                     <tr>
                       <th></th>
                       <th>Rules</th>
@@ -500,6 +519,33 @@ function Guides() {
           <dialog id="weapon_modal" className="modal">
               <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
                 <img src={weaponBG} className="w-full h-full object-cover" />
+                  </div>
+                <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+
+          <dialog id="lgs_modal" className="modal">
+              <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
+                <img src={lgsBG} className="w-full h-full object-cover" />
+                  </div>
+                <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+
+          <dialog id="sgs_modal" className="modal">
+              <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
+                <img src={sgsBG} className="w-full h-full object-cover" />
+                  </div>
+                <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+
+          <dialog id="excel_modal" className="modal">
+              <div className="modal-box w-full h-full max-w-[1600px] bg-transparent">
+                <img src={excelBG} className="w-full h-full object-cover" />
                   </div>
                 <form method="dialog" className="modal-backdrop">
               <button>close</button>

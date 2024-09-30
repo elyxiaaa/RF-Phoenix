@@ -34,7 +34,7 @@ function Interface ({ activeTab, scrollToEvents, scrollToLeaderboard, scrollToNe
         </div>
 
         <div className="navbar-center">
-        <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Platino hidden lg:flex space-x-5">
+        <ul className="menu menu-horizontal px-1 font-bold text-xl text-base-200 font-Rokkit hidden lg:flex space-x-5">
             <li className="relative group">
               <Link to="/"
                 className={getLinkClasses("home")}

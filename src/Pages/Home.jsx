@@ -347,26 +347,26 @@ const scrollToDonation = () => {
     <div className={`flex-col mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className="absolute flex ml-[20%] mt-[90px] w-full font-bold font-Plantino">
+        <div className="absolute flex ml-[20%] mt-[90px] w-full font-bold font-Rokkit">
           <p className="text-cyan-300 text-shadow-cyanGlow text-lg">STATUS:</p>
           <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow text-lg ml-[20%] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow text-lg ml-[20%] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
-        <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-Plantino">
-          <p className="text-cyan-300 text-shadow-cyanGlow text-lg">TOTAL:</p>
-          <p className={`text-lg ml-[20%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
+        <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-Rokkit">
+          <p className="text-cyan-300 text-shadow-cyanGlow text-lg">USERS:</p>
+          <p className={`text-lg ml-[23%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-md"></span>}
           </p>
         </div>
 
       <div className=" flex mt-[100px]">
-        <p className="absolute hidden sm:block ml-[20%] mt-[90px] text-cyan-300 text-shadow-cyanGlow text-lg font-bold font-Plantino">ORE:</p>
+        <p className="absolute hidden sm:block ml-[20%] mt-[90px] text-cyan-300 text-shadow-cyanGlow text-lg font-bold font-Rokkit">ORE:</p>
       <div className="absolute hidden sm:block ml-[20%] mt-[130px] w-[200px] h-[20px] bg-gray-500 rounded">
         <div className="h-full bg-orange-400 rounded" 
           style={{ width: `${orePercent}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
         </div>          
 
       </div>
@@ -377,14 +377,14 @@ const scrollToDonation = () => {
         
            
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
-        <div className="absolute flex ml-[15%] mt-[60px] w-full font-bold font-Plantino">
+        <div className="absolute flex ml-[15%] mt-[60px] w-full font-bold font-Rokkit">
           <p className="text-xl text-cyan-300 text-shadow-cyanGlow">WIN RACE:</p>
           <p className={`ml-[15%] text-xl text-shadow-blackGlow text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
                   
-           <div className="absolute ml-[15%] mt-[100px] w-full font-bold font-Plantino">
+           <div className="absolute ml-[15%] mt-[100px] w-full font-bold font-Rokkit">
               <div className="grid grid-cols-2 ">
                 
                 {/* CHIP BREAKER Row */}
@@ -409,29 +409,29 @@ const scrollToDonation = () => {
 
 <div className="relative flex mt-[80px]">
  {/** ACCRETIA STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[100px] text-cyan-300  text-xl font-bold font-Plantino">ACCRETIA:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[100px] text-cyan-300  text-xl font-bold font-Rokkit">ACCRETIA:</p>
       <div className="absolute hidden sm:block ml-20 mt-[130px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipAcc}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** BELLATO STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[160px] text-cyan-300 text-xl font-bold font-Plantino">BELLATO:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[160px] text-cyan-300 text-xl font-bold font-Rokkit">BELLATO:</p>
       <div className="absolute hidden sm:block ml-20 mt-[190px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipBcc}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** CORA STATUS STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[220px] text-cyan-300  text-xl font-bold font-Plantino">CORA:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[220px] text-cyan-300  text-xl font-bold font-Rokkit">CORA:</p>
       <div className="absolute hidden sm:block ml-20 mt-[250px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipCcc}%` }}/>
 
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Plantino mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       </div>
           
