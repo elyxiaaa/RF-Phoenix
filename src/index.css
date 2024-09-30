@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bitter:ital,wght@0,100..900;1,100..900&family=Lilita+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
-
+@font-face {
+    font-family: 'COPRGTB';
+    src: url('./assets/fonts/COPRGTB.TTF');
+}
+@font-face {
+    font-family: 'COOPBL';
+    src: url('./assets/fonts/COOPBL.TTF');
+}
+@font-face {
+    font-family: 'ERASBD';
+    src: url('./assets/fonts/ERASBD.TTF');
+}
+@font-face {
+    font-family: 'georgiab';
+    src: url('./assets//fonts/georgiab.ttf');
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -97,7 +97,7 @@ function Guides() {
           <GuideNavBar activeTab={activeTab}/>
             <div className="max-w-screen-2xl mx-auto my-[100px] flex flex-col items-center justify-center ">
               <div className="absolute top-[150px]" id="combinationSection">
-                <p className="text-6xl font-Rokkit font-bold text-white text-shadow-emeraldGlow">COMBINATION GUIDE</p>
+                <p className="text-6xl font-COP1 font-bold text-white text-shadow-emeraldGlow">COMBINATION GUIDE</p>
               </div>
 
               <div className="flex mt-[200px] object-contain h-auto w-auto justify-center items-center">
@@ -270,7 +270,7 @@ function Guides() {
 
             <div className="h-screen w-full bg-BG4 flex flex-col items-center justify-center " ref={serverRulesSectionRef}>
               <div className="" id="serverRulesSection">
-                  <p className="mt-[100px] text-6xl font-Rokkit font-bold text-white text-shadow-emeraldGlow">SERVER RULES</p>
+                  <p className="mt-[100px] text-6xl font-COP1 font-bold text-white text-shadow-emeraldGlow">SERVER RULES</p>
               </div>
 
 
@@ -278,7 +278,7 @@ function Guides() {
               <div className="overflow-x-auto w-3/4 bg-black/50 rounded-lg mt-10 mb-10 p-5">
                 <table className="table text-emerald-300">
                   {/* head */}
-                  <thead className="text-4xl text-white text-shadow-emeraldGlow font-bold font-Rokkit">
+                  <thead className="text-4xl text-white text-shadow-emeraldGlow font-bold font-COP1">
                     <tr>
                       <th></th>
                       <th>Rules</th>

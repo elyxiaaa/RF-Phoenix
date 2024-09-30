@@ -11,6 +11,10 @@ export default {
         Platino: ['Bitter', 'sans-serif'],
         Cinzel: ['Cinzel', 'sans-serif'],
         Rokkit: ['Rokkit', 'sans-serif'],
+        COP1: ['COPRGTB', 'sans-serif'],
+        COO1: ['COOPBL', 'sans-serif'],
+        ERA1: ['ERASBD', 'sans-serif'],
+        GEO1: ['georgiab', 'sans-serif'],
       },
       backgroundImage: {
         'BG': "url('/src/assets/BG.jpg')",

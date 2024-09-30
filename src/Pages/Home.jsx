@@ -308,6 +308,7 @@ const scrollToDonation = () => {
     scrollToDownload={scrollToDownload}
   />
         <div className="max-w-screen-2xl  mx-auto my-[130px] flex flex-col">
+          
             <img src={txtImage} className={`object-fill h-[350px] w-[650px] ${isHomeAnimationReset ?  'animate-fadeIn' : ''}`} alt="Text"  />
     
           <div className="flex ml-[274px]">
@@ -320,7 +321,9 @@ const scrollToDonation = () => {
             </a>
           </div>
           </div>
-
+          <div className="flex items-center justify-center">
+            <h2 className="text-3xl font-COP1 font-bold text-white text-shadow-emeraldGlow mb-10">JOIN THE BATTLEFIELD</h2>
+          </div>
           <div className="flex h-[80px] w-[auto] justify-center items-center">
             <a href="https://phoenix.gamecp.net/index.php" className="block">
               <img src={lowerLeft} className={`h-full w-auto  transition-transform duration-500 ease-in-out transform hover:scale-105" alt="Lower Left 
@@ -338,7 +341,7 @@ const scrollToDonation = () => {
         {/** LEADERBOARD SECTION **/}
       <div className="h-full w-full overflow-hidden bg-BG2 bg-no-repeat bg-full bg-center" ref={leaderboardSectionRef}>
   <div className="left-0 w-full flex justify-center items-center">
-    <p className={`mt-[150px] text-4xl font-Rokkit font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
+    <p className={`mt-[150px] text-4xl font-COP1 font-bold text-white text-shadow-emeraldGlow ${isLeaderboardAnimationReset ? 'animate-slide-up' : ''}`}>
       LEADERBOARD
     </p>
   </div>
@@ -347,14 +350,14 @@ const scrollToDonation = () => {
     <div className={`flex-col mb-[200px] ${isLeaderboardAnimationReset ? 'animate-slide-in-left' : ''}`}>
 
       <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105">
-        <div className="absolute flex ml-[20%] mt-[90px] w-full font-bold font-Rokkit">
+        <div className="absolute flex ml-[20%] mt-[90px] w-full font-bold font-COP1">
           <p className="text-cyan-300 text-shadow-cyanGlow text-lg">STATUS:</p>
           <p className={serverStatus === 'ONLINE' ? 'text-green-500 text-shadow-emeraldGlow text-lg ml-[20%] underline underline-offset-4' : 'text-red-500 text-shadow-redGlow text-lg ml-[20%] underline underline-offset-4'}>
             {serverStatus ? serverStatus : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
 
-        <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-Rokkit">
+        <div className="absolute flex ml-[20%] mt-[140px] w-full text-2xl font-bold font-COP1">
           <p className="text-cyan-300 text-shadow-cyanGlow text-lg">USERS:</p>
           <p className={`text-lg ml-[23%] text-green-500 text-shadow-emeraldGlow underline underline-offset-4 ${totalPlayers}`}>
             {totalPlayers ? totalPlayers : <span className="loading loading-bars loading-md"></span>}
@@ -362,11 +365,11 @@ const scrollToDonation = () => {
         </div>
 
       <div className=" flex mt-[100px]">
-        <p className="absolute hidden sm:block ml-[20%] mt-[90px] text-cyan-300 text-shadow-cyanGlow text-lg font-bold font-Rokkit">ORE:</p>
+        <p className="absolute hidden sm:block ml-[20%] mt-[90px] text-cyan-300 text-shadow-cyanGlow text-lg font-bold font-COP1">ORE:</p>
       <div className="absolute hidden sm:block ml-[20%] mt-[130px] w-[200px] h-[20px] bg-gray-500 rounded">
         <div className="h-full bg-orange-400 rounded" 
           style={{ width: `${orePercent}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-COP1 mt-[-18px]">{orePercent ? `${orePercent}%` : <span className="loading loading-bars loading-sm"></span>}</p>
         </div>          
 
       </div>
@@ -377,14 +380,14 @@ const scrollToDonation = () => {
         
            
     <div className="relative flex transition-transform duration-500 ease-in-out transform hover:scale-105 mt-[20px]">
-        <div className="absolute flex ml-[15%] mt-[60px] w-full font-bold font-Rokkit">
+        <div className="absolute flex ml-[15%] mt-[60px] w-full font-bold font-COP1">
           <p className="text-xl text-cyan-300 text-shadow-cyanGlow">WIN RACE:</p>
           <p className={`ml-[15%] text-xl text-shadow-blackGlow text-green-500 underline underline offset-4 ${winRace}`}>
             {winRace ? winRace : <span className="loading loading-bars loading-xl"></span>}
           </p>
         </div>
                   
-           <div className="absolute ml-[15%] mt-[100px] w-full font-bold font-Rokkit">
+           <div className="absolute ml-[15%] mt-[100px] w-full font-bold font-COP1">
               <div className="grid grid-cols-2 ">
                 
                 {/* CHIP BREAKER Row */}
@@ -409,29 +412,29 @@ const scrollToDonation = () => {
 
 <div className="relative flex mt-[80px]">
  {/** ACCRETIA STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[100px] text-cyan-300  text-xl font-bold font-Rokkit">ACCRETIA:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[100px] text-cyan-300  text-xl font-bold font-COP1">ACCRETIA:</p>
       <div className="absolute hidden sm:block ml-20 mt-[130px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipAcc}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-COP1 mt-[-18px]">{chipAcc ? `${chipAcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** BELLATO STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[160px] text-cyan-300 text-xl font-bold font-Rokkit">BELLATO:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[160px] text-cyan-300 text-xl font-bold font-COP1">BELLATO:</p>
       <div className="absolute hidden sm:block ml-20 mt-[190px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipBcc}%` }}/>
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Phoenix2 mt-[-18px]">{chipBcc ? `${chipBcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       {/** CORA STATUS STATUS **/}
-      <p className="absolute hidden sm:block ml-20 mt-[220px] text-cyan-300  text-xl font-bold font-Rokkit">CORA:</p>
+      <p className="absolute hidden sm:block ml-20 mt-[220px] text-cyan-300  text-xl font-bold font-COP1">CORA:</p>
       <div className="absolute hidden sm:block ml-20 mt-[250px] w-[230px] h-[20px] bg-gray-500 rounded">
         <div 
           className="h-full bg-orange-400 rounded" 
           style={{ width: `${chipCcc}%` }}/>
 
-        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-Rokkit mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
+        <p className="absolute hidden sm:block w-full text-center text-base-100 text-sm font-bold font-COP1 mt-[-18px]">{chipCcc ? `${chipCcc}%` : <span className="loading loading-bars loading-sm"></span>}</p>
       </div>
       </div>
           
@@ -454,9 +457,9 @@ const scrollToDonation = () => {
           <div className="absolute top-[55px] left-[330px] w-1/2 h-full flex flex-col justify-start ">
             {/* Header Section */}
             <div className="flex justify-between items-center bg-opacity-50 bg-black rounded-t-xl p-3">
-              <div className="w-1/2 text-left text-cyan-300 text-shadow-cyanGlow font-bold text-sm">Top Killers</div>
-              <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow font-bold text-sm">Kill</div>
-              <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow font-bold text-sm">Death</div>
+              <div className="w-1/2 text-left text-cyan-300 text-shadow-cyanGlow font-bold font-COP1 text-sm">Top Killers</div>
+              <div className="w-1/4 text-center text-green-500 text-shadow-emeraldGlow font-bold font-COP1 text-sm">Kill</div>
+              <div className="w-1/4 text-center text-orange-400 text-shadow-orangeGlow font-bold font-COP1 text-sm">Death</div>
             </div>
 
                   {/* Killers Data Section */}
@@ -530,7 +533,7 @@ const scrollToDonation = () => {
 
   <div className="h-fit w-full overflow-hidden bg-BG6 bg-no-repeat bg-cover bg-center p-4" ref={downloadSectionRef}>
     <div className="flex items-center justify-center">
-      <h2 className="text-4xl text-white font-bold font-Platino text-shadow-emeraldGlow">FULL CLIENT</h2>
+      <h2 className="text-4xl text-white font-bold font-COP1 text-shadow-emeraldGlow">FULL CLIENT</h2>
     </div>
     <div className="flex items-center justify-center mt-5">
     <div className="relative flex gap-10 justify-center items-center">
@@ -538,7 +541,7 @@ const scrollToDonation = () => {
           href="https://drive.google.com/file/d/1lZKNaZW71IEvC8cMlL2Y3x486BTzPdpO/view"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+          className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
         <FaGoogleDrive />
           GDRIVE
         </a>
@@ -546,7 +549,7 @@ const scrollToDonation = () => {
           href="https://www.mediafire.com/file/x48ld4u0vu5j1ru/RF_Phx_2232.rar/file"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+          className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
         <SiMediafire />
           MEDIAFIRE
         </a>
@@ -554,7 +557,7 @@ const scrollToDonation = () => {
           href="https://mega.nz/file/l393RSjR#591lKuUvObKIMI0no4nRMOkW4OaqD9ZNYvbjpGiLvNw"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-[200px] bg-transparent font-bold text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
+          className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
           <SiMega />
           MEGA
         </a>
