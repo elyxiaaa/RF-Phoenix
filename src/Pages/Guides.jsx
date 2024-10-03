@@ -399,10 +399,10 @@ function Guides() {
                      {/* row 14 */}
                      <tr>
                       <th>14</th>
-                      <td>Tower Camping NEAR ANY SAFEZONE SPOTS (Elan / Sette / etc.) will receive the following sanction. (Unless those towers are intended to use while clashing).</td>
+                      <td>Tower Camping, Placing Traps NEAR ANY SAFEZONE / TP SPOTS (Elan / Sette / etc.) will receive the following sanction. (Unless those towers are intended to use while clashing).</td>
                       <td className="flex flex-col">
-                      <td>1ST: 7 Days Ban</td>
-                      <td>2ND: 15 DAYS BAN</td>
+                      <td>1ST: 1 Day Ban </td>
+                      <td>2ND: 7 DAYS BAN</td>
                       <td>3rd: 30 DAYS - PERMANENT BAN</td>
                       </td>
                     </tr>
