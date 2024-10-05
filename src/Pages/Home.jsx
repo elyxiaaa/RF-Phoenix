@@ -21,6 +21,14 @@ import events from '../assets/RF-ASSETS/events.png'
 import accretiaIcon from '../assets/RF-ASSETS/AccretiaIcon.jpg'
 import bellatoIcon from '../assets/RF-ASSETS/BellatoIcon.jpg'
 import coraIcon from '../assets/RF-ASSETS/CoraIcon.jpg'
+import page1 from '../assets/RF-ASSETS/CASH-ASSETS/Page1.png'
+import page2 from '../assets/RF-ASSETS/CASH-ASSETS/Page2.png'
+import page3 from '../assets/RF-ASSETS/CASH-ASSETS/Page3.png'
+import page4 from '../assets/RF-ASSETS/CASH-ASSETS/Page4.png'
+import page5 from '../assets/RF-ASSETS/CASH-ASSETS/Page5.png'
+import page6 from '../assets/RF-ASSETS/CASH-ASSETS/Page6.png'
+import page7 from '../assets/RF-ASSETS/CASH-ASSETS/Page7.png'
+import Slider from "react-slick";
 import { FaGoogleDrive } from "react-icons/fa";
 import { SiMega } from "react-icons/si";
 import { SiMediafire } from "react-icons/si";
@@ -294,7 +302,25 @@ const scrollToDonation = () => {
     donationSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 };
+const images = [page1, page2, page3, page4, page5, page6, page7];
+const [currentImage, setCurrentImage] = useState(null);
 
+const openModal = (image) => {
+  setCurrentImage(image);
+  document.getElementById('image_modal').showModal(); // Show the modal
+};
+
+
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 6000,
+};
 
   return (
     <>
@@ -515,9 +541,26 @@ const scrollToDonation = () => {
   </div>
 
   <div className="h-fit w-full bg-black bg-no-repeat bg-cover bg-center" ref={donationSectionRef}>
-<div className="relative flex justify-center items-center">
-    <img src={cashShop} className="relative h-fit w-screen"/>
+  <div className="relative flex justify-center items-center">
+    {/* Background Image */}
+    <img src={cashShop} className="relative h-fit w-screen" />
 
+     {/* Slider positioned inside the marked section */}
+     <div className="absolute top-[29%] left-[17%] w-[80%] h-[40%] z-10 flex justify-center items-center">
+          <Slider {...sliderSettings} className="w-1/2 h-full">
+            {images.map((image, index) => (
+              <div key={index}>
+                {/* When clicking on the image, open the modal */}
+                <img
+                  src={image}
+                  className="h-full w-full object-contain cursor-pointer"
+                  alt={`Slide ${index + 1}`}
+                  onClick={() => openModal(image)}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
   </div>
 </div>
 
@@ -564,7 +607,22 @@ const scrollToDonation = () => {
       </div>
     </div>
   </div>
-
+{/* DaisyUI Modal */}
+<dialog id="image_modal" className="modal">
+                <div className="modal-box w-full h-full max-w-[1300px] bg-transparent">
+                {currentImage && (
+              <img
+                src={currentImage}
+                className="w-full h-full object-contain"
+                alt="Modal Image"
+              />
+            )}
+                  </div>  
+          {/* Modal backdrop for clicking outside to close */}
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
 
       <Footer />
     </>
