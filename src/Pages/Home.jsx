@@ -546,7 +546,7 @@ const sliderSettings = {
     <img src={cashShop} className="relative h-fit w-screen" />
 
      {/* Slider positioned inside the marked section */}
-     <div className="absolute top-[29%] left-[17%] w-[80%] h-[40%] z-10 flex justify-center items-center">
+     <div className="absolute top-[30.5%] left-[9.5%] w-[80%] h-[40%] z-10 flex justify-center items-center">
           <Slider {...sliderSettings} className="w-1/2 h-full">
             {images.map((image, index) => (
               <div key={index}>
