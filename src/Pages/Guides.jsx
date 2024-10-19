@@ -442,7 +442,7 @@ function Guides() {
                      {/* row 17 */}
                      <tr>
                       <th>17</th>
-                      <td className="text-2xl font-bold">The player is responsible for his account details. Giving your personal account details to your friends / pilots is at your own risk. If they changed your password or sold your items / account. It will not be recovered by the staffs.</td>
+                      <td className="text-2xl font-bold">The player is responsible for his account details / items. Giving your personal account details / gears to your friends / pilots is at your own risk. If they changed your password or sold your items / account. It will not be recovered by the staffs.</td>
                     </tr>
                   </tbody>
                 </table>
