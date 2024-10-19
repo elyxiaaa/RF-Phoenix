@@ -581,7 +581,7 @@ const sliderSettings = {
     <div className="flex items-center justify-center mt-5">
     <div className="relative flex gap-10 justify-center items-center">
         <a
-          href="https://drive.google.com/file/d/1lZKNaZW71IEvC8cMlL2Y3x486BTzPdpO/view"
+          href="https://drive.google.com/file/d/11JJ385i8AUwTsbTINFaa7jrCgN8AUt8g/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
@@ -589,7 +589,7 @@ const sliderSettings = {
           GDRIVE
         </a>
         <a
-          href="https://www.mediafire.com/file/x48ld4u0vu5j1ru/RF_Phx_2232.rar/file"
+          href="https://www.mediafire.com/file/ixak55061is8d0e/RF+Phx+2232.rar/file"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
@@ -597,7 +597,7 @@ const sliderSettings = {
           MEDIAFIRE
         </a>
         <a
-          href="https://mega.nz/file/l393RSjR#591lKuUvObKIMI0no4nRMOkW4OaqD9ZNYvbjpGiLvNw"
+          href="https://mega.nz/file/pFJ1DQ4Q#-gLPxb8goZnWqCiOXukwNyqRVlbg4-auzQ1RGQvhseU"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[200px] bg-transparent font-bold font-COP1 text-emerald-400 border border-emerald-400 text-xl px-6 py-3 rounded-md hover:bg-emerald-400 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2">
